@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How cross-broker copy trading works · Notebook · Adhly Azhar</title>
+  <meta name="description" content="Copy trading sounds simple: when a strategist trades, followers trade too. The hard parts are deciding whom to trust and placing hundreds of orders at once, inside other people’s broker accounts. FinTruvix builds its whole platform around those two problems.">
+  <meta name="theme-color" content="#F3EEE3">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How cross-broker copy trading works · Notebook · Adhly Azhar">
+  <meta property="og:description" content="Copy trading sounds simple: when a strategist trades, followers trade too. The hard parts are deciding whom to trust and placing hundreds of orders at once, inside other people’s broker accounts. FinTruvix builds its whole platform around those two problems.">
+  <meta property="og:image" content="https://azharadhly.github.io/portfolio/assets/img/profile/og-image.jpg">
+
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Adhly Azhar, home">
+        <span>Adhly Azhar</span>
+      </a>
+
+      <nav id="site-menu" class="nav-links" aria-label="Main">
+        <a href="index.html#work">Work Log</a>
+        <a href="index.html#services">Toolkit</a>
+        <a href="index.html#about">Bio</a>
+        <a href="notebook.html" class="is-active" aria-current="page">Notebook</a>
+        <a href="index.html#contact">Ping me</a>
+        <a class="only-mobile" href="assets/resume/adhly-azhar-resume.pdf" download>Download résumé</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="sound-toggle" type="button" data-sound-toggle data-on="Pause music" data-off="Play music"
+          aria-pressed="false" aria-label="Background music" title="Play music">
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        </button>
+        <a class="btn btn-ink btn-sm" href="index.html#contact">Let’s talk</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+          <i class="bi bi-list" aria-hidden="true"></i><i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <header class="note-head">
+        <a class="back-link" href="notebook.html"><i class="bi bi-arrow-left" aria-hidden="true"></i> Notebook</a>
+        <p class="label case-eyebrow"><span>(Note 05)</span>Trading · Copy trading<span class="nb-new">New</span></p>
+        <h1>How cross-broker <span>copy trading</span> works</h1>
+        <p class="note-lead">Copy trading sounds simple: when a strategist trades, followers trade too. The hard parts are deciding whom to trust and placing hundreds of orders at once, inside other people’s broker accounts. FinTruvix builds its whole platform around those two problems.</p>
+        <dl class="case-meta">
+          <div><dt>Reading time</dt><dd>4 min</dd></div>
+          <div><dt>Topic</dt><dd>Copy trading and trust</dd></div>
+          <div><dt>Diagrams</dt><dd>3, animated</dd></div>
+          <div><dt>Updated</dt><dd>Nov 2026</dd></div>
+        </dl>
+      </header>
+
+      <article class="note-body">
+
+        <div class="prose reveal">
+          <h2><span class="h-num">01</span>One record across brokers</h2>
+          <p>Most copy trading lives inside a single broker, so a strategist’s history disappears when they move. FinTruvix calls itself a cross-broker social trading platform: the record belongs to the trader, not to the broker. That record is the <strong>Trader Passport</strong>, created with the account, and the site says it can’t be deleted, reset or transferred. It holds:</p>
+          <ul>
+            <li><strong>Verified identity.</strong> KYC is done once, when the account is created.</li>
+            <li><strong>Roles.</strong> Follower, strategist, signalist or programme manager.</li>
+            <li><strong>Score history and conduct record.</strong> Every score change and every complaint stays on file.</li>
+            <li><strong>Connected brokers.</strong> The trading accounts linked to the passport.</li>
+          </ul>
+
+          <h2><span class="h-num">02</span>Connecting a broker</h2>
+          <p>A MetaTrader 5, cTrader or TradeLocker account can be connected in one of two modes. <strong>Read-only</strong> lets FinTruvix read the trades, which is how a strategist proves a track record. <strong>Trade-enabled</strong> lets it place copied orders, which is what a follower needs. For MT5, the site says the password is used once to confirm ownership and is never stored.</p>
+        </div>
+        <figure class="fig reveal">
+          <div class="fig-stage"><svg class="motion" viewBox="0 0 960 392" role="img" aria-label="FinTruvix connections: the strategist’s MT5 account is read-only and feeds the track record; when the strategist trades, FinTruvix places a copied order in the follower’s trade-enabled cTrader account, where the capital stays. FinTruvix itself holds only a wallet for top-ups and earnings." data-still="4.6"><path class="d-line" d="M260 76C318 76 310 198 365 198"/><path class="d-line" d="M595 198H720"/><path class="d-line" d="M480 246V300" stroke-dasharray="5 6"/><circle class="d-dot is-ink" r="6" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" path="M260 76C318 76 310 198 365 198" keyPoints="0;0;1;1" keyTimes="0.0000;0.0375;0.1500;1.0000"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0225;0.0375;0.1500;0.1650;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" path="M260 76C318 76 310 198 365 198" keyPoints="0;0;1;1" keyTimes="0.0000;0.3000;0.4000;1.0000"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2850;0.3000;0.4000;0.4150;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" path="M595 198H720" keyPoints="0;0;1;1" keyTimes="0.0000;0.4375;0.5250;1.0000"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4225;0.4375;0.5250;0.5400;1.0000"/></circle><g class="d-node is-dark"><rect x="30" y="40" width="230" height="72" rx="14"/><text class="d-title" x="145.0" y="74.0" text-anchor="middle">Strategist’s account</text><text class="d-sub" x="145.0" y="93.0" text-anchor="middle">MT5 · read-only</text></g><g class="d-node is-accent"><rect x="365" y="150" width="230" height="96" rx="14"/><text class="d-title" x="480.0" y="188.0" text-anchor="middle">FinTruvix</text><text class="d-sub" x="480.0" y="207.0" text-anchor="middle">Passport · Trust Score</text><text class="d-sub" x="480.0" y="224.0" text-anchor="middle">copy engine</text></g><g class="d-node "><rect x="720" y="150" width="216" height="96" rx="14"/><text class="d-title" x="828.0" y="188.0" text-anchor="middle">Follower’s account</text><text class="d-sub" x="828.0" y="207.0" text-anchor="middle">cTrader</text><text class="d-sub" x="828.0" y="224.0" text-anchor="middle">trade-enabled</text></g><g class="d-node "><rect x="365" y="300" width="230" height="64" rx="14"/><text class="d-title" x="480.0" y="330.0" text-anchor="middle">Wallet</text><text class="d-sub" x="480.0" y="349.0" text-anchor="middle">top-ups and earnings only</text></g><rect x="361" y="146" width="238" height="104" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0;1;1;0;0" keyTimes="0.0000;0.1375;0.1625;0.2250;0.2500;0.3875;0.4125;0.4500;0.4750;1.0000"/></rect><rect x="716" y="146" width="224" height="104" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.5125;0.5375;0.6750;0.7000;1.0000"/></rect><g class="d-tag"><rect x="18.599999999999994" y="126" width="262.8" height="21" rx="10.5"/><text class="d-label" x="150.0" y="141" text-anchor="middle">read-only: proves the track record</text></g><g class="d-tag"><rect x="604.8" y="164" width="104.4" height="21" rx="10.5"/><text class="d-label" x="657.0" y="179" text-anchor="middle">copied order</text></g><text class="d-label is-orange" x="480" y="136" text-anchor="middle" opacity="0">track record updated<animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1625;0.1875;0.2875;0.3125;1.0000"/></text><text class="d-label " x="480" y="136" text-anchor="middle" opacity="0">strategist opens a trade<animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3000;0.3250;0.4250;0.4500;1.0000"/></text><text class="d-label is-orange" x="828" y="274" text-anchor="middle">capital stays here</text><circle class="d-dot is-ink" cx="40" cy="372" r="6"/><text class="d-legend" x="56" y="376">trade data read</text><circle class="d-dot" cx="175" cy="372" r="6"/><text class="d-legend" x="191" y="376">a new trade and its copy</text></svg></div>
+          <figcaption><span class="fig-num">Fig. 01</span><span>Two kinds of connection. Trades are read from the strategist’s account (black) and copied into the follower’s account (orange). The follower’s capital never leaves their own broker.<span class="fig-hint">Swipe sideways to see the whole diagram.</span></span></figcaption>
+        </figure>
+
+        <div class="prose reveal">
+          <p>The money doesn’t move. Capital stays in the follower’s own broker account, and FinTruvix only mirrors trades into it. The one balance it holds is a wallet for top-ups and earnings, and the site says plainly that this wallet is not a bank account.</p>
+
+          <h2><span class="h-num">03</span>One trade, many orders</h2>
+          <p>When a strategist opens a trade, the copy engine has to turn it into a separate order for every follower, each sized for that follower’s account. A managed programme picks one sizing rule:</p>
+          <ul>
+            <li><strong>Lot multiplier.</strong> 1.00 lot × 0.5 = 0.50 lot.</li>
+            <li><strong>Fixed lot.</strong> Always the same size, such as 0.10 lot.</li>
+            <li><strong>Proportional.</strong> Scaled to the follower’s allocation, equity or balance. A $2,000 account copying a $20,000 one gets a tenth of the size.</li>
+          </ul>
+          <p>Before anything is sent, risk checks clamp the position size and enforce the allocation cap. A separate monitor pauses copying for anyone who hits a drawdown or daily loss limit. Then every order goes out at the same time.</p>
+        </div>
+        <figure class="fig reveal">
+          <div class="fig-stage"><svg class="motion" viewBox="0 0 960 380" role="img" aria-label="The copy engine turns one strategist trade of 1.00 lot into a sized order per follower: 0.50 lot with a 0.5 multiplier, 0.10 lot fixed, 0.10 lot proportional to equity, and none for a follower paused by the daily loss limit. All orders are placed at once." data-still="6"><path class="d-line is-ink" d="M224 210H300"/><path class="d-line" d="M530 210C585 210 585 57 640 57"/><path class="d-line" d="M530 210C585 210 585 141 640 141"/><path class="d-line" d="M530 210C585 210 585 225 640 225"/><path class="d-line" d="M530 210C585 210 585 309 640 309"/><circle class="d-dot " r="7" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" path="M224 210H300" keyPoints="0;0;1;1" keyTimes="0.0000;0.0333;0.1111;1.0000"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0200;0.0333;0.1111;0.1244;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" path="M530 210C585 210 585 57 640 57" keyPoints="0;0;1;1" keyTimes="0.0000;0.3333;0.4111;1.0000"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3200;0.3333;0.4111;0.4244;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" path="M530 210C585 210 585 141 640 141" keyPoints="0;0;1;1" keyTimes="0.0000;0.3333;0.4111;1.0000"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3200;0.3333;0.4111;0.4244;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" path="M530 210C585 210 585 225 640 225" keyPoints="0;0;1;1" keyTimes="0.0000;0.3333;0.4111;1.0000"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3200;0.3333;0.4111;0.4244;1.0000"/></circle><circle class="d-dot is-ink" r="7" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" path="M530 210C585 210 585 309 640 309" keyPoints="0;0;1;1" keyTimes="0.0000;0.3333;0.4111;1.0000"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3200;0.3333;0.4111;0.4244;1.0000"/></circle><g class="d-node is-dark"><rect x="24" y="168" width="200" height="84" rx="14"/><text class="d-title" x="124.0" y="208.0" text-anchor="middle">Strategist</text><text class="d-sub" x="124.0" y="227.0" text-anchor="middle">buys 1.00 lot EURUSD</text></g><rect x="300" y="120" width="230" height="180" rx="14" fill="#D9541E" stroke="#111111" stroke-width="2"/><text class="d-title" x="415" y="158" text-anchor="middle" style="fill:#FFFDF8">Copy engine</text><text class="d-label" x="328" y="200" style="fill:#FFFDF8;font-size:13px" opacity="0.55">01 size per follower</text><text class="d-label" x="328" y="200" style="fill:#FFFDF8;font-size:13px;font-weight:600" opacity="0">01 size per follower<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1222;0.1333;0.2111;0.2222;1.0000"/></text><text class="d-label" x="328" y="230" style="fill:#FFFDF8;font-size:13px" opacity="0.55">02 run risk checks</text><text class="d-label" x="328" y="230" style="fill:#FFFDF8;font-size:13px;font-weight:600" opacity="0">02 run risk checks<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2111;0.2222;0.3000;0.3111;1.0000"/></text><text class="d-label" x="328" y="260" style="fill:#FFFDF8;font-size:13px" opacity="0.55">03 place in parallel</text><text class="d-label" x="328" y="260" style="fill:#FFFDF8;font-size:13px;font-weight:600" opacity="0">03 place in parallel<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3000;0.3111;0.4222;0.4333;1.0000"/></text><rect x="296" y="116" width="238" height="188" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1111;0.1333;0.4222;0.4444;1.0000"/></rect><rect x="640" y="24" width="296" height="66" rx="12" fill="#FFFDF8" stroke="#111111" stroke-width="2"/><text class="d-title" x="660" y="53" style="font-size:16px">Follower A</text><text class="d-sub" x="660" y="73">lot multiplier 0.5×</text><text class="d-big" x="916" y="68" text-anchor="end" style="font-size:26px;fill:#D9541E" opacity="0">0.50 lot<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4111;0.4333;0.9556;0.9778;1.0000"/></text><rect x="640" y="108" width="296" height="66" rx="12" fill="#FFFDF8" stroke="#111111" stroke-width="2"/><text class="d-title" x="660" y="137" style="font-size:16px">Follower B</text><text class="d-sub" x="660" y="157">fixed lot</text><text class="d-big" x="916" y="152" text-anchor="end" style="font-size:26px;fill:#D9541E" opacity="0">0.10 lot<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4111;0.4333;0.9556;0.9778;1.0000"/></text><rect x="640" y="192" width="296" height="66" rx="12" fill="#FFFDF8" stroke="#111111" stroke-width="2"/><text class="d-title" x="660" y="221" style="font-size:16px">Follower C</text><text class="d-sub" x="660" y="241">equity $2,000 vs $20,000</text><text class="d-big" x="916" y="236" text-anchor="end" style="font-size:26px;fill:#D9541E" opacity="0">0.10 lot<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4111;0.4333;0.9556;0.9778;1.0000"/></text><rect x="640" y="276" width="296" height="66" rx="12" fill="#FFFDF8" stroke="#111111" stroke-width="2"/><text class="d-title" x="660" y="305" style="font-size:16px">Follower D</text><text class="d-sub" x="660" y="325">daily loss limit reached</text><text class="d-big" x="916" y="320" text-anchor="end" style="font-size:26px;fill:#7d7568" opacity="0">paused<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4111;0.4333;0.9556;0.9778;1.0000"/></text><text class="d-label is-orange" x="788" y="366" text-anchor="middle" opacity="0">all placed at the same moment<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4111;0.4333;0.9556;0.9778;1.0000"/></text></svg></div>
+          <figcaption><span class="fig-num">Fig. 02</span><span>One 1.00 lot trade becomes four outcomes: three orders sized by different rules, and one follower skipped because their daily loss limit was reached.<span class="fig-hint">Swipe sideways to see the whole diagram.</span></span></figcaption>
+        </figure>
+
+        <div class="prose reveal">
+          <p>Speed matters, because a follower whose order lands later gets a worse price. FinTruvix reports a fan-out time of 12 ms at the 99th percentile for 250 followers. That was measured against a mock broker, so real broker execution comes on top, and the design target is 100 ms.</p>
+
+          <h2><span class="h-num">04</span>The Trust Score</h2>
+          <p>Strategies are listed by Trust Score, and the site says nobody can pay to move up. The score has two parts:</p>
+          <ul>
+            <li><strong>Performance, P.</strong> Profit factor 25%, risk-adjusted return 20%, drawdown management 20%, win rate 15%, reward to risk 10% and longevity 10%. Copier profitability and consistency are declared at 0% until they can be measured.</li>
+            <li><strong>Integrity, I.</strong> Built from the conduct record, unresolved complaints and how complete the strategist’s disclosures are.</li>
+          </ul>
+          <p>They combine as <code>T = min(0.6 × P + 0.4 × I, I + 15)</code>. The second term is the clever part: no strategist can score more than 15 points above their integrity, however good their returns look.</p>
+        </div>
+        <figure class="fig reveal">
+          <div class="fig-stage"><svg class="motion" viewBox="0 0 960 392" role="img" aria-label="Trust Score example: six performance scores weighted into P = 90, integrity I = 60. The formula min(0.6 P + 0.4 I, I + 15) gives min(78, 75), so the Trust Score is 75, capped by integrity." data-still="8.5"><text class="d-legend" x="40" y="40">PERFORMANCE, P</text><text class="d-label" x="40" y="79" style="fill:#111">Profit factor</text><text class="d-legend" x="40" y="96">weight 25%</text><rect x="220" y="68" width="220" height="16" rx="8" fill="#FFFDF8" stroke="#cdc3b0" stroke-width="1.5"/><rect x="220" y="68" width="0" height="16" rx="8" fill="#111111"><animate attributeName="width" dur="10s" repeatCount="indefinite" values="0;0;202;202;0" keyTimes="0;0.0400;0.1000;0.9500;1"/></rect><text class="d-label" x="452" y="80" text-anchor="start" style="fill:#111" opacity="0">92<animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0900;0.1100;0.9500;0.9700;1.0000"/></text><text class="d-label" x="40" y="125" style="fill:#111">Risk-adjusted return</text><text class="d-legend" x="40" y="142">weight 20%</text><rect x="220" y="114" width="220" height="16" rx="8" fill="#FFFDF8" stroke="#cdc3b0" stroke-width="1.5"/><rect x="220" y="114" width="0" height="16" rx="8" fill="#111111"><animate attributeName="width" dur="10s" repeatCount="indefinite" values="0;0;187;187;0" keyTimes="0;0.0850;0.1450;0.9500;1"/></rect><text class="d-label" x="452" y="126" text-anchor="start" style="fill:#111" opacity="0">85<animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1350;0.1550;0.9500;0.9700;1.0000"/></text><text class="d-label" x="40" y="171" style="fill:#111">Drawdown management</text><text class="d-legend" x="40" y="188">weight 20%</text><rect x="220" y="160" width="220" height="16" rx="8" fill="#FFFDF8" stroke="#cdc3b0" stroke-width="1.5"/><rect x="220" y="160" width="0" height="16" rx="8" fill="#111111"><animate attributeName="width" dur="10s" repeatCount="indefinite" values="0;0;209;209;0" keyTimes="0;0.1300;0.1900;0.9500;1"/></rect><text class="d-label" x="452" y="172" text-anchor="start" style="fill:#111" opacity="0">95<animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1800;0.2000;0.9500;0.9700;1.0000"/></text><text class="d-label" x="40" y="217" style="fill:#111">Win rate</text><text class="d-legend" x="40" y="234">weight 15%</text><rect x="220" y="206" width="220" height="16" rx="8" fill="#FFFDF8" stroke="#cdc3b0" stroke-width="1.5"/><rect x="220" y="206" width="0" height="16" rx="8" fill="#111111"><animate attributeName="width" dur="10s" repeatCount="indefinite" values="0;0;176;176;0" keyTimes="0;0.1750;0.2350;0.9500;1"/></rect><text class="d-label" x="452" y="218" text-anchor="start" style="fill:#111" opacity="0">80<animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2250;0.2450;0.9500;0.9700;1.0000"/></text><text class="d-label" x="40" y="263" style="fill:#111">Reward to risk</text><text class="d-legend" x="40" y="280">weight 10%</text><rect x="220" y="252" width="220" height="16" rx="8" fill="#FFFDF8" stroke="#cdc3b0" stroke-width="1.5"/><rect x="220" y="252" width="0" height="16" rx="8" fill="#111111"><animate attributeName="width" dur="10s" repeatCount="indefinite" values="0;0;198;198;0" keyTimes="0;0.2200;0.2800;0.9500;1"/></rect><text class="d-label" x="452" y="264" text-anchor="start" style="fill:#111" opacity="0">90<animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2700;0.2900;0.9500;0.9700;1.0000"/></text><text class="d-label" x="40" y="309" style="fill:#111">Longevity</text><text class="d-legend" x="40" y="326">weight 10%</text><rect x="220" y="298" width="220" height="16" rx="8" fill="#FFFDF8" stroke="#cdc3b0" stroke-width="1.5"/><rect x="220" y="298" width="0" height="16" rx="8" fill="#111111"><animate attributeName="width" dur="10s" repeatCount="indefinite" values="0;0;220;220;0" keyTimes="0;0.2650;0.3250;0.9500;1"/></rect><text class="d-label" x="452" y="310" text-anchor="start" style="fill:#111" opacity="0">100<animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3150;0.3350;0.9500;0.9700;1.0000"/></text><text class="d-legend" x="40" y="366">copier profitability and consistency: 0%, not measured yet</text><path class="d-line" d="M520 40V380"/><text class="d-big" x="560" y="76" text-anchor="start" style="" opacity="0">P = 90<animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3400;0.3600;0.9500;0.9700;1.0000"/></text><text class="d-legend" x="560" y="98" text-anchor="start" style="" opacity="0">from the six scores<animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3500;0.3700;0.9500;0.9700;1.0000"/></text><text class="d-big" x="780" y="76" text-anchor="start" style="" opacity="0">I = 60<animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4100;0.4300;0.9500;0.9700;1.0000"/></text><text class="d-legend" x="780" y="98" text-anchor="start" style="" opacity="0">one open complaint<animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4200;0.4400;0.9500;0.9700;1.0000"/></text><text class="d-label" x="560" y="152" style="fill:#111;font-size:14px">T = min(0.6·P + 0.4·I, I + 15)</text><text class="d-label" x="560" y="198" text-anchor="start" style="font-size:15px;fill:#111" opacity="0">0.6 × 90 + 0.4 × 60 = 78<animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.5000;0.5200;0.9500;0.9700;1.0000"/></text><text class="d-label" x="560" y="232" text-anchor="start" style="font-size:15px;fill:#111" opacity="0">60 + 15 = 75<animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.5800;0.6000;0.9500;0.9700;1.0000"/></text><text class="d-big" x="560" y="312" text-anchor="start" style="font-size:56px;fill:#D9541E" opacity="0">Trust = 75<animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.6600;0.6800;0.9500;0.9700;1.0000"/></text><text class="d-label" x="560" y="346" text-anchor="start" style="fill:#D9541E" opacity="0">the smaller one wins: integrity caps the score<animate attributeName="opacity" dur="10s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.7000;0.7200;0.9500;0.9700;1.0000"/></text></svg></div>
+          <figcaption><span class="fig-num">Fig. 03</span><span>A worked example. Strong performance gives P = 90, but one unresolved complaint keeps I at 60. The weighted score would be 78; the integrity cap brings it down to 75.<span class="fig-hint">Swipe sideways to see the whole diagram.</span></span></figcaption>
+        </figure>
+
+        <div class="prose reveal">
+          <h2><span class="h-num">05</span>How fees work</h2>
+          <p>Followers pay no platform fee on their capital. Strategists set a performance fee, charged on realised profit, and can add a high-water mark so they’re only paid on new highs. No performance fee is charged for a period that ends in a loss. FinTruvix takes its share from the strategist’s earnings.</p>
+
+          <h2><span class="h-num">06</span>AI that can look but not touch</h2>
+          <p>FinTruvix supports the Model Context Protocol, so an AI assistant can read a user’s Trust Score, copy results and the marketplace. The number of tools that can place a trade, change a copy, move money or change a setting is zero. The assistant only sees what the user sees, and only while they allow it.</p>
+
+          <h2><span class="h-num">07</span>Words to know</h2>
+          <dl class="glossary">
+            <div><dt>Trader Passport</dt><dd>A permanent record of one trader: identity, roles, scores and conduct.</dd></div>
+            <div><dt>Trust Score</dt><dd>A 0 to 100 score that mixes performance with integrity.</dd></div>
+            <div><dt>Strategist</dt><dd>A trader whose trades others can copy.</dd></div>
+            <div><dt>Signalist</dt><dd>Publishes trade ideas to a channel that followers can act on.</dd></div>
+            <div><dt>PAMM</dt><dd>A pooled account where investors hold units in one shared trading account.</dd></div>
+            <div><dt>High-water mark</dt><dd>A fee rule that only pays on profit above the previous peak.</dd></div>
+            <div><dt>Drawdown</dt><dd>How far an account falls from its peak before recovering.</dd></div>
+            <div><dt>Fan-out</dt><dd>Turning one event into many parallel actions, here one trade into many orders.</dd></div>
+          </dl>
+          <p class="note-source">Based on the public <a href="https://fintruvix.com/" target="_blank" rel="noopener">FinTruvix website</a>. Figures are the company’s own; the Trust Score example values are made up.</p>
+        </div>
+
+      </article>
+
+      <nav class="case-next" aria-label="Next note">
+        <a href="how-payment-orchestration-works.html">
+          <span><small>Next note</small><strong>How payment orchestration works</strong></span>
+          <span class="work-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+        </a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span data-year>2026</span> Adhly Azhar</p>
+      <nav aria-label="Footer">
+        <a href="index.html#work">Work Log</a>
+        <a href="index.html#services">Toolkit</a>
+        <a href="index.html#about">Bio</a>
+        <a href="notebook.html">Notebook</a>
+        <a href="index.html#contact">Ping me</a>
+      </nav>
+      <a class="footer-kofi" href="https://ko-fi.com/adhlyazhar" target="_blank" rel="noopener"><i class="bi bi-cup-hot" aria-hidden="true"></i> Buy me a coffee</a>
+      <a class="to-top" href="#top">Back to top <i class="bi bi-arrow-up" aria-hidden="true"></i></a>
+    </div>
+    <div class="footer-mast" aria-hidden="true">Adhly Azhar</div>
+  </footer>
+
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/sound.js" defer></script>
+</body>
+
+</html>

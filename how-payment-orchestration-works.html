@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How payment orchestration works · Notebook · Adhly Azhar</title>
+  <meta name="description" content="A business that takes payments in many countries ends up with many payment providers, each with its own API, fees and approval rates. An orchestration layer such as Fincashier sits in front of all of them: the business integrates once, and the platform decides where each payment goes.">
+  <meta name="theme-color" content="#F3EEE3">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How payment orchestration works · Notebook · Adhly Azhar">
+  <meta property="og:description" content="A business that takes payments in many countries ends up with many payment providers, each with its own API, fees and approval rates. An orchestration layer such as Fincashier sits in front of all of them: the business integrates once, and the platform decides where each payment goes.">
+  <meta property="og:image" content="https://azharadhly.github.io/portfolio/assets/img/profile/og-image.jpg">
+
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Adhly Azhar, home">
+        <span>Adhly Azhar</span>
+      </a>
+
+      <nav id="site-menu" class="nav-links" aria-label="Main">
+        <a href="index.html#work">Work Log</a>
+        <a href="index.html#services">Toolkit</a>
+        <a href="index.html#about">Bio</a>
+        <a href="notebook.html" class="is-active" aria-current="page">Notebook</a>
+        <a href="index.html#contact">Ping me</a>
+        <a class="only-mobile" href="assets/resume/adhly-azhar-resume.pdf" download>Download résumé</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="sound-toggle" type="button" data-sound-toggle data-on="Pause music" data-off="Play music"
+          aria-pressed="false" aria-label="Background music" title="Play music">
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        </button>
+        <a class="btn btn-ink btn-sm" href="index.html#contact">Let’s talk</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+          <i class="bi bi-list" aria-hidden="true"></i><i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <header class="note-head">
+        <a class="back-link" href="notebook.html"><i class="bi bi-arrow-left" aria-hidden="true"></i> Notebook</a>
+        <p class="label case-eyebrow"><span>(Note 06)</span>Payments · Orchestration<span class="nb-new">New</span></p>
+        <h1>How payment <span>orchestration</span> works</h1>
+        <p class="note-lead">A business that takes payments in many countries ends up with many payment providers, each with its own API, fees and approval rates. An orchestration layer such as Fincashier sits in front of all of them: the business integrates once, and the platform decides where each payment goes.</p>
+        <dl class="case-meta">
+          <div><dt>Reading time</dt><dd>3 min</dd></div>
+          <div><dt>Topic</dt><dd>Routing across PSPs</dd></div>
+          <div><dt>Diagrams</dt><dd>3, animated</dd></div>
+          <div><dt>Updated</dt><dd>Nov 2026</dd></div>
+        </dl>
+      </header>
+
+      <article class="note-body">
+
+        <div class="prose reveal">
+          <h2><span class="h-num">01</span>Why orchestrate</h2>
+          <p>No single payment provider is best everywhere. One approves more cards in Germany, another is cheaper in the US, a third handles crypto, and any of them can go down. Connecting to each one separately means a new integration, a new dashboard and new reconciliation every time.</p>
+          <p>A payment orchestration platform puts one API in front of all of them. Fincashier describes itself as exactly that: the business integrates once and Fincashier handles the providers behind it, more than 80 of them according to its site.</p>
+        </div>
+        <figure class="fig reveal">
+          <div class="fig-stage"><svg class="motion" viewBox="0 0 960 380" role="img" aria-label="Payment orchestration: the merchant integrates once with Fincashier, which routes each payment to a different provider: a euro card payment from Germany to Adyen, a dollar card payment from the USA to Stripe, and a USDT crypto payment to BitPay." data-still="2.6"><path class="d-line is-ink" d="M204 208H300"/><path class="d-line" d="M510 208C575 208 575 56 640 56"/><path class="d-line" d="M510 208C575 208 575 126 640 126"/><path class="d-line" d="M510 208C575 208 575 196 640 196"/><path class="d-line" d="M510 208C575 208 575 266 640 266"/><path class="d-line" d="M510 208C575 208 575 336 640 336"/><circle class="d-dot " r="7" opacity="0"><animateMotion dur="9.6s" repeatCount="indefinite" calcMode="linear" path="M204 208H300" keyPoints="0;0;1;1" keyTimes="0.0000;0.0312;0.1146;1.0000"/><animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0187;0.0312;0.1146;0.1271;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="9.6s" repeatCount="indefinite" calcMode="linear" path="M510 208C575 208 575 126 640 126" keyPoints="0;0;1;1" keyTimes="0.0000;0.1458;0.2292;1.0000"/><animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1333;0.1458;0.2292;0.2417;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="9.6s" repeatCount="indefinite" calcMode="linear" path="M204 208H300" keyPoints="0;0;1;1" keyTimes="0.0000;0.3542;0.4375;1.0000"/><animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3417;0.3542;0.4375;0.4500;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="9.6s" repeatCount="indefinite" calcMode="linear" path="M510 208C575 208 575 56 640 56" keyPoints="0;0;1;1" keyTimes="0.0000;0.4688;0.5521;1.0000"/><animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4562;0.4688;0.5521;0.5646;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="9.6s" repeatCount="indefinite" calcMode="linear" path="M204 208H300" keyPoints="0;0;1;1" keyTimes="0.0000;0.6771;0.7604;1.0000"/><animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.6646;0.6771;0.7604;0.7729;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="9.6s" repeatCount="indefinite" calcMode="linear" path="M510 208C575 208 575 336 640 336" keyPoints="0;0;1;1" keyTimes="0.0000;0.7917;0.8750;1.0000"/><animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.7792;0.7917;0.8750;0.8875;1.0000"/></circle><g class="d-node is-dark"><rect x="24" y="168" width="180" height="80" rx="14"/><text class="d-title" x="114.0" y="206.0" text-anchor="middle">Merchant</text><text class="d-sub" x="114.0" y="225.0" text-anchor="middle">one integration</text></g><g class="d-node is-accent"><rect x="300" y="140" width="210" height="136" rx="14"/><text class="d-title" x="405.0" y="198.0" text-anchor="middle">Fincashier</text><text class="d-sub" x="405.0" y="217.0" text-anchor="middle">routing, failover</text><text class="d-sub" x="405.0" y="234.0" text-anchor="middle">credential vault</text></g><g class="d-node "><rect x="640" y="30" width="200" height="52" rx="14"/><text class="d-title" x="740.0" y="62.0" text-anchor="middle">Stripe</text></g><g class="d-node "><rect x="640" y="100" width="200" height="52" rx="14"/><text class="d-title" x="740.0" y="132.0" text-anchor="middle">Adyen</text></g><g class="d-node "><rect x="640" y="170" width="200" height="52" rx="14"/><text class="d-title" x="740.0" y="202.0" text-anchor="middle">Checkout.com</text></g><g class="d-node "><rect x="640" y="240" width="200" height="52" rx="14"/><text class="d-title" x="740.0" y="272.0" text-anchor="middle">Nuvei</text></g><g class="d-node "><rect x="640" y="310" width="200" height="52" rx="14"/><text class="d-title" x="740.0" y="342.0" text-anchor="middle">BitPay</text></g><rect x="296" y="136" width="218" height="144" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0;1;1;0;0;1;1;0;0" keyTimes="0.0000;0.1146;0.1354;0.1562;0.1771;0.4375;0.4583;0.4792;0.5000;0.7604;0.7812;0.8021;0.8229;1.0000"/></rect><g opacity="0"><g class="d-tag"><rect x="33.0" y="134" width="162.0" height="21" rx="10.5"/><text class="d-label" x="114.0" y="149" text-anchor="middle">€25 · card · Germany</text></g><animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0208;0.0365;0.3125;0.3281;1.0000"/></g><rect x="636" y="96" width="208" height="60" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2292;0.2500;0.3229;0.3438;1.0000"/></rect><text class="d-label is-orange" x="852" y="131" text-anchor="start" opacity="0">approved<animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2292;0.2500;0.3229;0.3438;1.0000"/></text><g opacity="0"><g class="d-tag"><rect x="47.400000000000006" y="134" width="133.2" height="21" rx="10.5"/><text class="d-label" x="114.0" y="149" text-anchor="middle">$40 · card · USA</text></g><animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3438;0.3594;0.6354;0.6510;1.0000"/></g><rect x="636" y="26" width="208" height="60" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.5521;0.5729;0.6458;0.6667;1.0000"/></rect><text class="d-label is-orange" x="852" y="61" text-anchor="start" opacity="0">approved<animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.5521;0.5729;0.6458;0.6667;1.0000"/></text><g opacity="0"><g class="d-tag"><rect x="47.400000000000006" y="134" width="133.2" height="21" rx="10.5"/><text class="d-label" x="114.0" y="149" text-anchor="middle">50 USDT · crypto</text></g><animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.6667;0.6823;0.9583;0.9740;1.0000"/></g><rect x="636" y="306" width="208" height="60" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.8750;0.8958;0.9688;0.9896;1.0000"/></rect><text class="d-label is-orange" x="852" y="341" text-anchor="start" opacity="0">approved<animate attributeName="opacity" dur="9.6s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.8750;0.8958;0.9688;0.9896;1.0000"/></text></svg></div>
+          <figcaption><span class="fig-num">Fig. 01</span><span>One integration, many providers. Each payment is routed on its own: a German card to Adyen, a US card to Stripe, a USDT payment to BitPay.<span class="fig-hint">Swipe sideways to see the whole diagram.</span></span></figcaption>
+        </figure>
+
+        <div class="prose reveal">
+          <h2><span class="h-num">02</span>Creating a payment</h2>
+          <p>Everything starts with a payment session. The merchant sends the amount in minor units (2500 means €25.00), the currency, the customer and how the payment should be routed:</p>
+          <pre class="code"><code>POST /v1/sessions
+
+{
+  "amount": 2500,
+  "currency": "EUR",
+  "customer": { "id": "cus_8841" },
+  "routing": {
+    "strategy": "performance",
+    "retries": 3,
+    "failover": true
+  }
+}</code></pre>
+          <p>The response carries the session id, a status of <code>pending</code>, <code>approved</code> or <code>failed</code>, and the provider that took the payment. Requests accept an idempotency key, so a retried call never charges twice.</p>
+
+          <h2><span class="h-num">03</span>Smart routing</h2>
+          <p>The router picks a provider for each payment using live numbers. The site says approval rates, latency and error rates update every 60 seconds. The routing strategy decides what best means:</p>
+          <ul>
+            <li><strong>performance</strong>: the highest approval rate.</li>
+            <li><strong>cost</strong>: the lowest fee.</li>
+            <li><strong>geo</strong>: the provider that works best for the customer’s country.</li>
+            <li><strong>round_robin</strong>: take turns, to spread the volume.</li>
+            <li><strong>custom</strong>: the merchant’s own rules.</li>
+          </ul>
+        </div>
+        <figure class="fig reveal">
+          <div class="fig-stage"><svg class="motion" viewBox="0 0 960 340" role="img" aria-label="Routing scoreboard with example numbers for Stripe, Adyen and Checkout.com. With the performance strategy the router picks Adyen for its 96.8% approval rate; with the cost strategy it picks Checkout.com for its 2.6% fee." data-still="2.5"><rect x="100" y="108" width="760" height="48" rx="10" fill="#FFFDF8" stroke="#111111" stroke-width="1.5"/><rect x="100" y="166" width="760" height="48" rx="10" fill="#FFFDF8" stroke="#111111" stroke-width="1.5"/><rect x="100" y="224" width="760" height="48" rx="10" fill="#FFFDF8" stroke="#111111" stroke-width="1.5"/><rect x="345" y="70" width="150" height="214" rx="12" fill="#D9541E" fill-opacity="0.13" stroke="#D9541E" stroke-width="2" opacity="0"><animate attributeName="opacity" dur="8.4s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0476;0.0714;0.4643;0.4881;1.0000"/></rect><rect x="535" y="70" width="130" height="214" rx="12" fill="#D9541E" fill-opacity="0.13" stroke="#D9541E" stroke-width="2" opacity="0"><animate attributeName="opacity" dur="8.4s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.5238;0.5476;0.9405;0.9643;1.0000"/></rect><text class="d-legend" x="130" y="94" text-anchor="start">PSP</text><text class="d-legend" x="420" y="94" text-anchor="middle">APPROVAL RATE</text><text class="d-legend" x="600" y="94" text-anchor="middle">FEE</text><text class="d-legend" x="770" y="94" text-anchor="middle">LATENCY</text><text class="d-title" x="130" y="138" style="font-size:16px">Stripe</text><text class="d-label" x="420" y="137" text-anchor="middle" style="font-size:14px;fill:#111">94.1%</text><text class="d-label" x="600" y="137" text-anchor="middle" style="font-size:14px;fill:#111">2.9%</text><text class="d-label" x="770" y="137" text-anchor="middle" style="font-size:14px;fill:#111">310 ms</text><text class="d-title" x="130" y="196" style="font-size:16px">Adyen</text><text class="d-label" x="420" y="195" text-anchor="middle" style="font-size:14px;fill:#111">96.8%</text><text class="d-label" x="600" y="195" text-anchor="middle" style="font-size:14px;fill:#111">3.1%</text><text class="d-label" x="770" y="195" text-anchor="middle" style="font-size:14px;fill:#111">280 ms</text><text class="d-title" x="130" y="254" style="font-size:16px">Checkout.com</text><text class="d-label" x="420" y="253" text-anchor="middle" style="font-size:14px;fill:#111">95.2%</text><text class="d-label" x="600" y="253" text-anchor="middle" style="font-size:14px;fill:#111">2.6%</text><text class="d-label" x="770" y="253" text-anchor="middle" style="font-size:14px;fill:#111">350 ms</text><rect x="96" y="162" width="768" height="56" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="8.4s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1429;0.1667;0.4643;0.4881;1.0000"/></rect><rect x="96" y="220" width="768" height="56" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="8.4s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.6190;0.6429;0.9405;0.9643;1.0000"/></rect><g opacity="0"><g class="d-tag"><rect x="100" y="26" width="169.20000000000002" height="21" rx="10.5"/><text class="d-label" x="184.60000000000002" y="41" text-anchor="middle">strategy: performance</text></g><animate attributeName="opacity" dur="8.4s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0238;0.0476;0.4643;0.4881;1.0000"/></g><g opacity="0"><g class="d-tag"><rect x="100" y="26" width="118.8" height="21" rx="10.5"/><text class="d-label" x="159.4" y="41" text-anchor="middle">strategy: cost</text></g><animate attributeName="opacity" dur="8.4s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.5000;0.5238;0.9405;0.9643;1.0000"/></g><text class="d-label is-orange" x="480" y="318" text-anchor="middle" opacity="0">routed to Adyen: highest approval rate<animate attributeName="opacity" dur="8.4s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1548;0.1786;0.4643;0.4881;1.0000"/></text><text class="d-label is-orange" x="480" y="318" text-anchor="middle" opacity="0">routed to Checkout.com: lowest fee<animate attributeName="opacity" dur="8.4s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.6310;0.6548;0.9405;0.9643;1.0000"/></text><g transform="translate(850 36)"><circle r="9" fill="none" stroke="#cdc3b0" stroke-width="2.5"/><path d="M0 -9A9 9 0 0 1 9 0" fill="none" stroke="#D9541E" stroke-width="2.5" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.6s" repeatCount="indefinite"/></path></g><text class="d-legend" x="832" y="40" text-anchor="end">stats refresh every 60 s</text></svg></div>
+          <figcaption><span class="fig-num">Fig. 02</span><span>The same three providers, two strategies, two different winners. All numbers are examples.<span class="fig-hint">Swipe sideways to see the whole diagram.</span></span></figcaption>
+        </figure>
+
+        <div class="prose reveal">
+          <h2><span class="h-num">04</span>Failover cascades</h2>
+          <p>If the first provider declines or doesn’t answer, the payment can move to the next one in an ordered list, such as Stripe, then Adyen, then Checkout.com. The customer only sees one payment that went through.</p>
+        </div>
+        <figure class="fig reveal">
+          <div class="fig-stage"><svg class="motion" viewBox="0 0 960 340" role="img" aria-label="Failover cascade: Stripe gives a soft decline, Adyen times out, Checkout.com approves. Fincashier sends the merchant two session.rerouted webhooks and then session.approved." data-still="6"><path class="d-line" d="M214 90H750"/><path class="d-line" d="M119 130V230"/><circle class="d-dot " r="7" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" path="M214 90H385" keyPoints="0;0;1;1" keyTimes="0.0000;0.0333;0.1111;1.0000"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0200;0.0333;0.1111;0.1244;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" path="M385 90H615" keyPoints="0;0;1;1" keyTimes="0.0000;0.2000;0.2778;1.0000"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1867;0.2000;0.2778;0.2911;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" path="M615 90H845" keyPoints="0;0;1;1" keyTimes="0.0000;0.3667;0.4444;1.0000"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3533;0.3667;0.4444;0.4578;1.0000"/></circle><circle class="d-dot is-ink" r="6" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" path="M119 130V230" keyPoints="0;0;1;1" keyTimes="0.0000;0.1444;0.2000;1.0000"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1311;0.1444;0.2000;0.2133;1.0000"/></circle><circle class="d-dot is-ink" r="6" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" path="M119 130V230" keyPoints="0;0;1;1" keyTimes="0.0000;0.3111;0.3667;1.0000"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2978;0.3111;0.3667;0.3800;1.0000"/></circle><circle class="d-dot " r="6" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" calcMode="linear" path="M119 130V230" keyPoints="0;0;1;1" keyTimes="0.0000;0.4778;0.5333;1.0000"/><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4644;0.4778;0.5333;0.5467;1.0000"/></circle><g class="d-node is-accent"><rect x="24" y="50" width="190" height="80" rx="14"/><text class="d-title" x="119.0" y="88.0" text-anchor="middle">Fincashier</text><text class="d-sub" x="119.0" y="107.0" text-anchor="middle">session ses_9f2a</text></g><g class="d-node is-dark"><rect x="24" y="230" width="190" height="76" rx="14"/><text class="d-title" x="119.0" y="266.0" text-anchor="middle">Merchant server</text><text class="d-sub" x="119.0" y="285.0" text-anchor="middle">receives webhooks</text></g><text class="d-legend" x="385" y="38" text-anchor="middle">attempt 1</text><g class="d-node "><rect x="290" y="50" width="190" height="80" rx="14"/><text class="d-title" x="385.0" y="96.0" text-anchor="middle">Stripe</text></g><rect x="286" y="46" width="198" height="88" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1000;0.1222;0.1889;0.2111;1.0000"/></rect><g opacity="0"><circle cx="320" cy="160" r="11" fill="#111111"/><path d="M316 156l8 8m0 -8l-8 8" fill="none" stroke="#FFFDF8" stroke-width="2.2" stroke-linecap="round"/><text class="d-label" x="340" y="165" style="font-size:13px;fill:#111111">declined (soft)</text><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1111;0.1278;0.9556;0.9722;1.0000"/></g><text class="d-legend" x="615" y="38" text-anchor="middle">attempt 2</text><g class="d-node "><rect x="520" y="50" width="190" height="80" rx="14"/><text class="d-title" x="615.0" y="96.0" text-anchor="middle">Adyen</text></g><rect x="516" y="46" width="198" height="88" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2667;0.2889;0.3556;0.3778;1.0000"/></rect><g opacity="0"><circle cx="550" cy="160" r="11" fill="#111111"/><path d="M546 156l8 8m0 -8l-8 8" fill="none" stroke="#FFFDF8" stroke-width="2.2" stroke-linecap="round"/><text class="d-label" x="570" y="165" style="font-size:13px;fill:#111111">timeout</text><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2778;0.2944;0.9556;0.9722;1.0000"/></g><text class="d-legend" x="845" y="38" text-anchor="middle">attempt 3</text><g class="d-node "><rect x="750" y="50" width="190" height="80" rx="14"/><text class="d-title" x="845.0" y="96.0" text-anchor="middle">Checkout.com</text></g><rect x="746" y="46" width="198" height="88" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4333;0.4556;0.5222;0.5444;1.0000"/></rect><g opacity="0"><circle cx="780" cy="160" r="11" fill="#D9541E"/><path d="M774.5 160l4 4 7.5-8" fill="none" stroke="#FFFDF8" stroke-width="2.4" stroke-linecap="round"/><text class="d-label" x="800" y="165" style="font-size:13px;fill:#D9541E">approved</text><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4444;0.4611;0.9556;0.9722;1.0000"/></g><rect x="250" y="206" width="690" height="116" rx="12" fill="#FFFDF8" stroke="#cdc3b0" stroke-width="2" stroke-dasharray="6 6"/><text class="d-legend" x="274" y="232">WEBHOOK EVENTS</text><g opacity="0"><text class="d-label" x="274" y="262" style="font-size:13px;fill:#111">session.rerouted</text><text class="d-legend" x="460" y="262">stripe: soft decline</text><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2000;0.2167;0.9556;0.9722;1.0000"/></g><g opacity="0"><text class="d-label" x="274" y="286" style="font-size:13px;fill:#111">session.rerouted</text><text class="d-legend" x="460" y="286">adyen: timeout</text><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3667;0.3833;0.9556;0.9722;1.0000"/></g><g opacity="0"><text class="d-label" x="274" y="310" style="font-size:13px;fill:#D9541E">session.approved</text><text class="d-legend" x="460" y="310">checkout.com</text><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.5333;0.5500;0.9556;0.9722;1.0000"/></g></svg></div>
+          <figcaption><span class="fig-num">Fig. 03</span><span>Three attempts, one payment. The merchant hears about each reroute through a webhook, then gets session.approved.<span class="fig-hint">Swipe sideways to see the whole diagram.</span></span></figcaption>
+        </figure>
+
+        <div class="prose reveal">
+          <div class="callout"><strong>Not every decline should be retried</strong>A soft decline, such as a timeout or a bank that’s briefly unavailable, is worth trying elsewhere. A hard decline, such as a card reported stolen, should stop the cascade. Retrying it makes a business look risky to the card networks.</div>
+
+          <h2><span class="h-num">05</span>Webhooks and reconciliation</h2>
+          <p>Every change is reported by webhook, with events such as <code>session.approved</code>, <code>session.rerouted</code> and <code>refund.processed</code>. Each is signed with HMAC-SHA256 and retried with exponential backoff, and the site says events stay in a log for 72 hours so they can be replayed. Settlements from every provider are then matched against the transactions automatically, the same reconciliation shown in <a class="link-arrow" href="how-payment-providers-work.html">Note 02</a>.</p>
+
+          <h2><span class="h-num">06</span>More than taking payments</h2>
+          <p>The same layer sends payouts to banks, cards and wallets, one at a time or in batches. It keeps every provider’s API keys in one vault with role-based access, runs fraud rules before a payment is routed, and offers a hosted or embedded checkout that decides when to ask for 3-D Secure.</p>
+
+          <h2><span class="h-num">07</span>Words to know</h2>
+          <dl class="glossary">
+            <div><dt>Payment orchestration</dt><dd>One layer that connects to many payment providers and routes between them.</dd></div>
+            <div><dt>PSP</dt><dd>Payment service provider, such as Stripe or Adyen.</dd></div>
+            <div><dt>Routing strategy</dt><dd>The rule that decides which provider gets a payment.</dd></div>
+            <div><dt>Cascade</dt><dd>An ordered list of providers to try when one fails.</dd></div>
+            <div><dt>Soft decline</dt><dd>A temporary failure that may succeed on retry or elsewhere.</dd></div>
+            <div><dt>Approval rate</dt><dd>The share of payment attempts a provider approves.</dd></div>
+            <div><dt>Minor units</dt><dd>Amounts as whole cents, so 2500 means 25.00.</dd></div>
+            <div><dt>Idempotency key</dt><dd>A unique key that makes a repeated request safe.</dd></div>
+          </dl>
+          <p class="note-source">Based on the public <a href="https://www.fincashier.com/" target="_blank" rel="noopener">Fincashier website</a> and developer page. Figures are the company’s own; scoreboard numbers are examples.</p>
+        </div>
+
+      </article>
+
+      <nav class="case-next" aria-label="Next note">
+        <a href="how-local-deposit-gateways-work.html">
+          <span><small>Next note</small><strong>How a local deposit gateway works</strong></span>
+          <span class="work-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+        </a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span data-year>2026</span> Adhly Azhar</p>
+      <nav aria-label="Footer">
+        <a href="index.html#work">Work Log</a>
+        <a href="index.html#services">Toolkit</a>
+        <a href="index.html#about">Bio</a>
+        <a href="notebook.html">Notebook</a>
+        <a href="index.html#contact">Ping me</a>
+      </nav>
+      <a class="footer-kofi" href="https://ko-fi.com/adhlyazhar" target="_blank" rel="noopener"><i class="bi bi-cup-hot" aria-hidden="true"></i> Buy me a coffee</a>
+      <a class="to-top" href="#top">Back to top <i class="bi bi-arrow-up" aria-hidden="true"></i></a>
+    </div>
+    <div class="footer-mast" aria-hidden="true">Adhly Azhar</div>
+  </footer>
+
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/sound.js" defer></script>
+</body>
+
+</html>

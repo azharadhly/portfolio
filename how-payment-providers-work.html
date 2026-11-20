@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How a payment provider works · Notebook · Adhly Azhar</title>
+  <meta name="description" content="When a trader taps Deposit, the money passes through four or five companies in a second or two. A payment service provider, or PSP, hides all of them behind one checkout and one API.">
+  <meta name="theme-color" content="#F3EEE3">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How a payment provider works · Notebook · Adhly Azhar">
+  <meta property="og:description" content="When a trader taps Deposit, the money passes through four or five companies in a second or two. A payment service provider, or PSP, hides all of them behind one checkout and one API.">
+  <meta property="og:image" content="https://azharadhly.github.io/portfolio/assets/img/profile/og-image.jpg">
+
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Adhly Azhar, home">
+        <span>Adhly Azhar</span>
+      </a>
+
+      <nav id="site-menu" class="nav-links" aria-label="Main">
+        <a href="index.html#work">Work Log</a>
+        <a href="index.html#services">Toolkit</a>
+        <a href="index.html#about">Bio</a>
+        <a href="notebook.html" class="is-active" aria-current="page">Notebook</a>
+        <a href="index.html#contact">Ping me</a>
+        <a class="only-mobile" href="assets/resume/adhly-azhar-resume.pdf" download>Download résumé</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="sound-toggle" type="button" data-sound-toggle data-on="Pause music" data-off="Play music"
+          aria-pressed="false" aria-label="Background music" title="Play music">
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        </button>
+        <a class="btn btn-ink btn-sm" href="index.html#contact">Let’s talk</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+          <i class="bi bi-list" aria-hidden="true"></i><i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <header class="note-head">
+        <a class="back-link" href="notebook.html"><i class="bi bi-arrow-left" aria-hidden="true"></i> Notebook</a>
+        <p class="label case-eyebrow"><span>(Note 02)</span>Payments · PSP</p>
+        <h1>How a <span>payment provider</span> works</h1>
+        <p class="note-lead">When a trader taps Deposit, the money passes through four or five companies in a second or two. A payment service provider, or PSP, hides all of them behind one checkout and one API.</p>
+        <dl class="case-meta">
+          <div><dt>Reading time</dt><dd>3 min</dd></div>
+          <div><dt>Topic</dt><dd>Deposits and payouts</dd></div>
+          <div><dt>Diagrams</dt><dd>3, animated</dd></div>
+          <div><dt>Updated</dt><dd>Nov 2026</dd></div>
+        </dl>
+      </header>
+
+      <article class="note-body">
+
+        <div class="prose reveal">
+          <h2><span class="h-num">01</span>Who’s in the chain</h2>
+          <p>A card payment touches more companies than most people expect.</p>
+          <ul>
+            <li><strong>Checkout.</strong> The broker’s payment page, often hosted by the PSP so card numbers never touch the broker’s servers.</li>
+            <li><strong>PSP.</strong> Collects the payment details and routes them. One integration gives the broker cards, bank transfers and local payment methods.</li>
+            <li><strong>Acquirer.</strong> The merchant’s bank. It sends the request into the card network and later pays the money out.</li>
+            <li><strong>Card network.</strong> Visa or Mastercard, passing messages between the banks.</li>
+            <li><strong>Issuer.</strong> The trader’s bank. It checks the balance and fraud signals, then approves or declines.</li>
+          </ul>
+          <p>Often the issuer first asks for <strong>3-D Secure</strong>: a one-time code or a tap in the banking app that proves the card holder is really there.</p>
+        </div>
+        <figure class="fig reveal">
+          <div class="fig-stage"><svg class="motion" viewBox="0 0 960 400" role="img" aria-label="A card deposit: the authorization request travels from the trader through checkout, PSP, acquirer and card network to the issuer; the approval comes back; the PSP then sends a webhook to the broker server, which credits the wallet." data-still="9"><text class="d-label is-orange" x="474" y="62" text-anchor="middle">AUTHORIZATION REQUEST</text><path class="d-line" d="M82 80H862"/><path class="d-flow" d="M82 80H862"/><path class="d-line is-ink" d="M82 198H862"/><path class="d-flow is-ink is-reverse" d="M82 198H862"/><text class="d-label " x="474" y="222" text-anchor="middle">APPROVED, IN A SECOND OR TWO</text><path class="d-line" d="M394 198V280"/><path class="d-line" d="M488 318H560"/><g class="d-node is-dark"><rect x="16" y="100" width="132" height="76" rx="14"/><text class="d-title" x="82.0" y="136.0" text-anchor="middle">Trader</text><text class="d-sub" x="82.0" y="155.0" text-anchor="middle">taps Deposit</text></g><g class="d-node "><rect x="172" y="100" width="132" height="76" rx="14"/><text class="d-title" x="238.0" y="136.0" text-anchor="middle">Checkout</text><text class="d-sub" x="238.0" y="155.0" text-anchor="middle">broker page</text></g><g class="d-node is-accent"><rect x="328" y="100" width="132" height="76" rx="14"/><text class="d-title" x="394.0" y="136.0" text-anchor="middle">PSP</text><text class="d-sub" x="394.0" y="155.0" text-anchor="middle">one API</text></g><g class="d-node "><rect x="484" y="100" width="132" height="76" rx="14"/><text class="d-title" x="550.0" y="136.0" text-anchor="middle">Acquirer</text><text class="d-sub" x="550.0" y="155.0" text-anchor="middle">merchant bank</text></g><g class="d-node "><rect x="640" y="100" width="132" height="76" rx="14"/><text class="d-title" x="706.0" y="136.0" text-anchor="middle">Card network</text><text class="d-sub" x="706.0" y="155.0" text-anchor="middle">Visa, Mastercard</text></g><g class="d-node "><rect x="796" y="100" width="132" height="76" rx="14"/><text class="d-title" x="862.0" y="136.0" text-anchor="middle">Issuer</text><text class="d-sub" x="862.0" y="155.0" text-anchor="middle">trader's bank</text></g><circle class="d-dot " r="7" opacity="0"><animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" path="M82 80H862" keyPoints="0;0;1;1" keyTimes="0.0000;0.0273;0.2818;1.0000"/><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0164;0.0273;0.2818;0.2927;1.0000"/></circle><circle class="d-dot is-ink" r="7" opacity="0"><animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" path="M862 198H82" keyPoints="0;0;1;1" keyTimes="0.0000;0.3273;0.5455;1.0000"/><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3164;0.3273;0.5455;0.5564;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" path="M394 198V280" keyPoints="0;0;1;1" keyTimes="0.0000;0.5727;0.6364;1.0000"/><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.5618;0.5727;0.6364;0.6473;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" path="M488 318H560" keyPoints="0;0;1;1" keyTimes="0.0000;0.6909;0.7364;1.0000"/><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.6800;0.6909;0.7364;0.7473;1.0000"/></circle><rect x="12" y="96" width="140" height="84" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0;1;1;0;0" keyTimes="0.0000;0.0091;0.0273;0.0591;0.0773;0.5273;0.5455;0.5773;0.5955;1.0000"/></rect><rect x="168" y="96" width="140" height="84" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0;1;1;0;0" keyTimes="0.0000;0.0600;0.0782;0.1100;0.1282;0.4836;0.5018;0.5336;0.5518;1.0000"/></rect><rect x="324" y="96" width="140" height="84" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0;1;1;0;0" keyTimes="0.0000;0.1109;0.1291;0.1609;0.1791;0.4400;0.4582;0.4900;0.5082;1.0000"/></rect><rect x="480" y="96" width="140" height="84" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0;1;1;0;0" keyTimes="0.0000;0.1618;0.1800;0.2118;0.2300;0.3964;0.4145;0.4464;0.4645;1.0000"/></rect><rect x="636" y="96" width="140" height="84" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0;1;1;0;0" keyTimes="0.0000;0.2127;0.2309;0.2627;0.2809;0.3527;0.3709;0.4027;0.4209;1.0000"/></rect><rect x="792" y="96" width="140" height="84" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;0;1;1;0;1;0;0" keyTimes="0.0000;0.2636;0.2818;0.3091;0.3136;0.3273;0.3318;0.3591;0.3773;1.0000"/></rect><g class="d-node "><rect x="300" y="280" width="188" height="76" rx="14"/><text class="d-title" x="394.0" y="316.0" text-anchor="middle">Broker server</text><text class="d-sub" x="394.0" y="335.0" text-anchor="middle">checks the signature</text></g><g class="d-node "><rect x="560" y="280" width="170" height="76" rx="14"/><text class="d-title" x="645.0" y="316.0" text-anchor="middle">Wallet</text><text class="d-sub" x="645.0" y="335.0" text-anchor="middle">&#160;</text></g><rect x="296" y="276" width="196" height="84" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.6273;0.6455;0.7000;0.7182;1.0000"/></rect><rect x="556" y="276" width="178" height="84" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.7364;0.7545;0.9545;0.9727;1.0000"/></rect><g class="d-tag"><rect x="338.2" y="236" width="111.60000000000001" height="21" rx="10.5"/><text class="d-label" x="394.0" y="251" text-anchor="middle">webhook: paid</text></g><text class="d-label " x="645" y="338" text-anchor="middle" opacity="0">$0.00<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0001;0.0182;0.7364;0.7545;1.0000"/></text><text class="d-label is-orange" x="645" y="338" text-anchor="middle" opacity="0">$100.00<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.7409;0.7591;0.9636;0.9818;1.0000"/></text><circle class="d-dot" cx="780" cy="386" r="6"/><text class="d-legend" x="796" y="390">request</text><circle class="d-dot is-ink" cx="859" cy="386" r="6"/><text class="d-legend" x="875" y="390">answer</text></svg></div>
+          <figcaption><span class="fig-num">Fig. 01</span><span>The authorization request (orange) goes out to the issuer and the answer (black) comes back. Then the PSP sends a webhook to the broker’s server, which credits the wallet.<span class="fig-hint">Swipe sideways to see the whole diagram.</span></span></figcaption>
+        </figure>
+
+        <div class="prose reveal">
+          <h2><span class="h-num">02</span>Callbacks, not answers</h2>
+          <p>The redirect back to the broker after paying is not proof of payment. The trader can close the tab, and a redirect can be faked. The real answer arrives separately as a <strong>webhook</strong>: the PSP calls the broker’s server directly with the result, signed so it can’t be forged.</p>
+          <p>Webhooks are delivered at least once, which sometimes means more than once. A network blip makes the PSP retry, and the same event can arrive twice.</p>
+        </div>
+        <figure class="fig reveal">
+          <div class="fig-stage"><svg class="motion" viewBox="0 0 960 300" role="img" aria-label="A webhook delivered three times: the first attempt times out, the second credits 100 dollars, the third carries the same event id and is ignored, so the balance stays at 100 dollars." data-still="9.2"><path class="d-line is-ink" d="M210 165H700"/><g class="d-node is-accent"><rect x="40" y="127" width="170" height="76" rx="14"/><text class="d-title" x="125.0" y="163.0" text-anchor="middle">PSP</text><text class="d-sub" x="125.0" y="182.0" text-anchor="middle">sends the result</text></g><g class="d-node "><rect x="700" y="127" width="220" height="76" rx="14"/><text class="d-title" x="810.0" y="163.0" text-anchor="middle">Broker server</text><text class="d-sub" x="810.0" y="182.0" text-anchor="middle">remembers event ids</text></g><circle class="d-dot " r="7" opacity="0"><animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" path="M210 165H455" keyPoints="0;0;1;1" keyTimes="0.0000;0.0364;0.1636;1.0000"/><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0255;0.0364;0.1636;0.1745;1.0000"/></circle><text class="d-big is-orange" x="455" y="172" text-anchor="middle" opacity="0">✕<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1727;0.1909;0.2727;0.2909;1.0000"/></text><text class="d-label " x="455" y="112" text-anchor="middle" opacity="0">timeout<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1727;0.1909;0.2727;0.2909;1.0000"/></text><circle class="d-dot " r="7" opacity="0"><animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" path="M210 165H700" keyPoints="0;0;1;1" keyTimes="0.0000;0.3091;0.4909;1.0000"/><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2982;0.3091;0.4909;0.5018;1.0000"/></circle><rect x="696" y="123" width="228" height="84" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4818;0.5000;0.5636;0.5818;1.0000"/></rect><text class="d-label is-orange" x="810" y="240" text-anchor="middle" opacity="0">event 7f3a: credit $100<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4909;0.5091;0.9455;0.9636;1.0000"/></text><circle class="d-dot is-ink" r="7" opacity="0"><animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" path="M210 165H700" keyPoints="0;0;1;1" keyTimes="0.0000;0.6000;0.7818;1.0000"/><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.5891;0.6000;0.7818;0.7927;1.0000"/></circle><rect x="696" y="123" width="228" height="84" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.7727;0.7909;0.8364;0.8545;1.0000"/></rect><text class="d-label " x="810" y="264" text-anchor="middle" opacity="0">event 7f3a again: ignored<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.7909;0.8091;0.9455;0.9636;1.0000"/></text><text class="d-label " x="300" y="150" text-anchor="middle" opacity="0">attempt 1<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0182;0.0364;0.2727;0.2909;1.0000"/></text><text class="d-label " x="300" y="150" text-anchor="middle" opacity="0">attempt 2<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2909;0.3091;0.5636;0.5818;1.0000"/></text><text class="d-label " x="300" y="150" text-anchor="middle" opacity="0">attempt 3<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.5818;0.6000;0.8727;0.8909;1.0000"/></text><text class="d-label " x="810" y="96" text-anchor="middle" opacity="0">balance $0.00<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0001;0.0182;0.4909;0.5091;1.0000"/></text><text class="d-label is-orange" x="810" y="96" text-anchor="middle" opacity="0">balance $100.00<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4955;0.5136;0.9636;0.9818;1.0000"/></text></svg></div>
+          <figcaption><span class="fig-num">Fig. 02</span><span>Attempt 1 times out, attempt 2 credits $100 and attempt 3 is a duplicate. The server remembers each event id, so the balance stays at $100.<span class="fig-hint">Swipe sideways to see the whole diagram.</span></span></figcaption>
+        </figure>
+
+        <div class="prose reveal">
+          <p>Two habits make this safe:</p>
+          <ul>
+            <li><strong>Idempotency.</strong> Every event has a unique id. Save it in the same database transaction as the credit, and ignore any id you’ve already seen.</li>
+            <li><strong>Status sync.</strong> If a callback never comes, ask the PSP. A scheduled job checks payments stuck in pending and settles them either way.</li>
+          </ul>
+
+          <h2><span class="h-num">03</span>Fees, worked out</h2>
+          <p>PSPs usually charge a percentage plus a fixed amount per transaction. For a 100 dollar deposit at 2.5% + $0.30:</p>
+          <div class="fee-slip" aria-label="Fee example">
+            <div><span>Deposit</span><i></i><b>$100.00</b></div>
+            <div><span>Percentage fee, 2.5%</span><i></i><b>$2.50</b></div>
+            <div><span>Fixed fee</span><i></i><b>$0.30</b></div>
+            <div class="is-total"><span>Total fee</span><i></i><b>$2.80</b></div>
+            <div><span>Credited if the client pays</span><i></i><b>$97.20</b></div>
+            <div><span>Credited if the broker pays</span><i></i><b>$100.00</b></div>
+          </div>
+          <p>Who pays is a business choice. Either way, calculate in exact decimals and round once, at the end.</p>
+
+          <h2><span class="h-num">04</span>Withdrawals go the other way</h2>
+          <p>A withdrawal, or payout, starts in the back office. Staff or automated rules check it first. Is the account verified? Is the money still needed as margin for open positions? Is it going back to the method it came from? Returning money the way it came in is a standard anti-money laundering rule. Only then does the broker ask the PSP to pay out.</p>
+
+          <h2><span class="h-num">05</span>Reconciliation</h2>
+          <p>Every day the PSP sends a settlement report listing what it actually collected and paid out. Reconciliation matches that report line by line against the broker’s own ledger.</p>
+        </div>
+        <figure class="fig reveal">
+          <div class="fig-stage"><svg class="motion" viewBox="0 0 960 360" role="img" aria-label="Reconciliation: three deposits in the broker ledger match the PSP settlement report; the fourth is missing from the report and is flagged for review." data-still="6"><text class="d-title" x="60" y="54">Broker ledger</text><text class="d-title" x="570" y="54">PSP settlement report</text><g class="d-node"><rect x="60" y="78" width="330" height="46" rx="10"/></g><text class="d-label" x="80" y="106">DEP-1041</text><text class="d-label" x="370" y="106" text-anchor="end">100.00</text><g class="d-node"><rect x="570" y="78" width="330" height="46" rx="10"/></g><text class="d-label" x="590" y="106">DEP-1041</text><text class="d-label" x="880" y="106" text-anchor="end">100.00</text><path d="M390 101H570" fill="none" stroke="#111111" stroke-width="2" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" dur="9s" repeatCount="indefinite" values="1;1;0;0;1" keyTimes="0;0.0667;0.1333;0.9333;1"/></path><circle cx="480" cy="101" r="12" fill="#111111" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1333;0.1500;0.9333;0.9500;1.0000"/></circle><path d="M474 101l4 4 8-8" fill="none" stroke="#F3EEE3" stroke-width="2.4" stroke-linecap="round" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1333;0.1500;0.9333;0.9500;1.0000"/></path><g class="d-node"><rect x="60" y="140" width="330" height="46" rx="10"/></g><text class="d-label" x="80" y="168">DEP-1042</text><text class="d-label" x="370" y="168" text-anchor="end">250.00</text><g class="d-node"><rect x="570" y="140" width="330" height="46" rx="10"/></g><text class="d-label" x="590" y="168">DEP-1042</text><text class="d-label" x="880" y="168" text-anchor="end">250.00</text><path d="M390 163H570" fill="none" stroke="#111111" stroke-width="2" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" dur="9s" repeatCount="indefinite" values="1;1;0;0;1" keyTimes="0;0.1889;0.2556;0.9333;1"/></path><circle cx="480" cy="163" r="12" fill="#111111" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2556;0.2722;0.9333;0.9500;1.0000"/></circle><path d="M474 163l4 4 8-8" fill="none" stroke="#F3EEE3" stroke-width="2.4" stroke-linecap="round" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2556;0.2722;0.9333;0.9500;1.0000"/></path><g class="d-node"><rect x="60" y="202" width="330" height="46" rx="10"/></g><text class="d-label" x="80" y="230">DEP-1043</text><text class="d-label" x="370" y="230" text-anchor="end">75.00</text><g class="d-node"><rect x="570" y="202" width="330" height="46" rx="10"/></g><text class="d-label" x="590" y="230">DEP-1043</text><text class="d-label" x="880" y="230" text-anchor="end">75.00</text><path d="M390 225H570" fill="none" stroke="#111111" stroke-width="2" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"><animate attributeName="stroke-dashoffset" dur="9s" repeatCount="indefinite" values="1;1;0;0;1" keyTimes="0;0.3111;0.3778;0.9333;1"/></path><circle cx="480" cy="225" r="12" fill="#111111" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3778;0.3944;0.9333;0.9500;1.0000"/></circle><path d="M474 225l4 4 8-8" fill="none" stroke="#F3EEE3" stroke-width="2.4" stroke-linecap="round" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3778;0.3944;0.9333;0.9500;1.0000"/></path><g class="d-node"><rect x="60" y="264" width="330" height="46" rx="10"/></g><text class="d-label" x="80" y="292">DEP-1044</text><text class="d-label" x="370" y="292" text-anchor="end">500.00</text><rect x="570" y="264" width="330" height="46" rx="10" fill="none" stroke="#cdc3b0" stroke-width="2" stroke-dasharray="6 6"/><text class="d-label" x="735" y="292" text-anchor="middle">not in the report yet</text><circle cx="480" cy="287" r="14" fill="#D9541E" opacity="0"><animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4556;0.4722;0.9333;0.9500;1.0000"/></circle><text x="480" y="293" text-anchor="middle" font-family="Geist, sans-serif" font-weight="700" font-size="17" fill="#FFFDF8" opacity="0">!<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4556;0.4722;0.9333;0.9500;1.0000"/></text><text class="d-label is-orange" x="480" y="328" text-anchor="middle" opacity="0">flag for review<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4778;0.5000;0.9333;0.9556;1.0000"/></text></svg></div>
+          <figcaption><span class="fig-num">Fig. 03</span><span>Three deposits match. The fourth is in the ledger but not in the report yet, so it is flagged for a person to check.<span class="fig-hint">Swipe sideways to see the whole diagram.</span></span></figcaption>
+        </figure>
+
+        <div class="prose reveal">
+          <p>Mismatches are normal. Settlement lags a day or two behind, fees are deducted, refunds and chargebacks arrive later. The goal isn’t zero mismatches; it’s that none goes unnoticed.</p>
+
+          <h2><span class="h-num">06</span>Words to know</h2>
+          <dl class="glossary">
+            <div><dt>PSP</dt><dd>Payment service provider. One API in front of many payment methods and banks.</dd></div>
+            <div><dt>Acquirer</dt><dd>The merchant’s bank, which processes card payments and settles the money.</dd></div>
+            <div><dt>Issuer</dt><dd>The bank that issued the card and approves or declines each payment.</dd></div>
+            <div><dt>3-D Secure</dt><dd>An extra check by the card holder’s bank, such as a code or an app approval.</dd></div>
+            <div><dt>Webhook</dt><dd>A message the PSP sends to the broker’s server when something happens.</dd></div>
+            <div><dt>Idempotency key</dt><dd>A unique id that lets the same request be repeated safely.</dd></div>
+            <div><dt>Settlement</dt><dd>When collected money actually moves to the merchant’s bank account.</dd></div>
+            <div><dt>Chargeback</dt><dd>The card holder disputes a payment and their bank pulls the money back.</dd></div>
+          </dl>
+        </div>
+
+      </article>
+
+      <nav class="case-next" aria-label="Next note">
+        <a href="mt5-latency-engine.html">
+          <span><small>Next note</small><strong>Inside MT5's latency engine</strong></span>
+          <span class="work-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+        </a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span data-year>2026</span> Adhly Azhar</p>
+      <nav aria-label="Footer">
+        <a href="index.html#work">Work Log</a>
+        <a href="index.html#services">Toolkit</a>
+        <a href="index.html#about">Bio</a>
+        <a href="notebook.html">Notebook</a>
+        <a href="index.html#contact">Ping me</a>
+      </nav>
+      <a class="footer-kofi" href="https://ko-fi.com/adhlyazhar" target="_blank" rel="noopener"><i class="bi bi-cup-hot" aria-hidden="true"></i> Buy me a coffee</a>
+      <a class="to-top" href="#top">Back to top <i class="bi bi-arrow-up" aria-hidden="true"></i></a>
+    </div>
+    <div class="footer-mast" aria-hidden="true">Adhly Azhar</div>
+  </footer>
+
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/sound.js" defer></script>
+</body>
+
+</html>

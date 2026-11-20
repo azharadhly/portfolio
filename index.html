@@ -3,1288 +3,538 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Adhly Azhar</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adhly Azhar · Full-stack software engineer</title>
+  <meta name="description" content="Adhly Azhar is a full-stack software engineer at Finovation Technologies in Puttalam, Sri Lanka, building trading, payments and onboarding platforms with Laravel, Next.js and AI.">
+  <meta name="theme-color" content="#F3EEE3">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Adhly Azhar · Full-stack software engineer">
+  <meta property="og:description" content="Full-stack engineer building fintech platforms, web apps and automations.">
+  <meta property="og:image" content="https://azharadhly.github.io/portfolio/assets/img/profile/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <link href="assets/img/code-slash.svg" rel="icon">
-  <link href="assets/img/code-slash.svg" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 
-<body class="index-page">
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <!-- shared gradients for the Tackit-style pins on the sticky notes -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <radialGradient id="pin-ball" cx="0.36" cy="0.32" r="0.72">
+        <stop offset="0" stop-color="#f6d4c7"/><stop offset="0.45" stop-color="#d9541e"/><stop offset="1" stop-color="#8f3110"/>
+      </radialGradient>
+      <linearGradient id="pin-steel" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#f3f4f6"/><stop offset="0.5" stop-color="#a1a7b0"/><stop offset="1" stop-color="#525a66"/>
+      </linearGradient>
+    </defs>
+  </svg>
 
-  <header id="header" class="header d-flex align-items-center position-relative">
-    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center">
-
-        <h1 class="sitename">AdhlyAzhar</h1>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Adhly Azhar, home">
+        <span>Adhly Azhar</span>
       </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#resume">Resume</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      <nav id="site-menu" class="nav-links" aria-label="Main">
+        <a href="#work">Work Log</a>
+        <a href="#services">Toolkit</a>
+        <a href="#about">Bio</a>
+        <a href="notebook.html">Notebook</a>
+        <a href="#contact">Ping me</a>
+        <a class="only-mobile" href="assets/resume/adhly-azhar-resume.pdf" download>Download résumé</a>
       </nav>
 
+      <div class="nav-actions">
+        <button class="sound-toggle" type="button" data-sound-toggle data-on="Pause music" data-off="Play music"
+          aria-pressed="false" aria-label="Background music" title="Play music">
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        </button>
+        <a class="btn btn-ink btn-sm" href="#contact">Let’s talk</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+          <i class="bi bi-list" aria-hidden="true"></i><i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+      </div>
     </div>
   </header>
 
-  <main class="main">
+  <main id="main">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row align-items-center gx-5 gy-5">
-
-          <div class="col-lg-7">
-            <div class="intro" data-aos="fade-right" data-aos-delay="150">
-              <div class="eyebrow d-inline-flex align-items-center gap-2 mb-3">
-                <span class="dot"></span>
-                <span class="text">Full-Stack Web Developer & Designer</span>
-              </div>
-
-              <h1 class="display-heading mb-3">
-                Designing impactful web solutions with precision and creativity
-              </h1>
-
-              <p class="lead mb-4">
-                I specialize in crafting modern, user-friendly websites that balance clean design with powerful
-                functionality. With a focus on detail and usability, I transform ideas into digital experiences that
-                engage and inspire.
-              </p>
-
-              <div class="cta-group d-flex flex-wrap align-items-center gap-3" data-aos="zoom-in" data-aos-delay="250">
-                <a href="#portfolio" class="btn btn-ghost">
-                  View Selected Work
-                  <i class="bi bi-arrow-right ms-2"></i>
-                </a>
-                <a href="#contact" class="link-underline">
-                  Get in touch
-                  <i class="bi bi-envelope ms-2"></i>
-                </a>
-              </div>
-
-              <div class="meta mt-4 d-flex flex-wrap align-items-center gap-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="meta-item d-flex align-items-center gap-2">
-                  <i class="bi bi-geo-alt"></i>
-                  <span>puttalam ,Sri Lanka</span>
-                </div>
-                <div class="meta-item d-flex align-items-center gap-2">
-                  <i class="bi bi-circle"></i>
-                  <span>Available for freelance</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-5">
-            <figure class="portrait-wrap position-relative" data-aos="fade-left" data-aos-delay="200">
-              <img src="assets/img/profile/20250609_.jpg" alt="Profile Portrait" class="img-fluid portrait-img">
-              <figcaption class="visually-hidden">Minimal portrait preview</figcaption>
-
-              <div class="badge note" data-aos="zoom-in" data-aos-delay="300">
-                <i class="bi bi-star"></i>
-                <span>Delivering creative and effective web solutions</span>
-              </div>
-            </figure>
-          </div>
-
+    <!-- Hero: poster masthead -->
+    <section class="hero" aria-label="Introduction">
+      <div class="container">
+        <div class="hero-strip" data-intro>
+          <span>(Portfolio) <b data-year>2026</b></span>
+          <span class="hide-sm">Associate Software Engineer at Finovation Tech</span>
+          <span><i class="status-dot" aria-hidden="true"></i>Available for freelance</span>
         </div>
 
+        <div class="hero-stage">
+          <div class="hero-dots" aria-hidden="true"></div>
+          <h1 class="masthead">
+            <span class="mast-word mast-left"><span>Adhly</span></span>
+            <span class="mast-word mast-right"><span>Azhar</span></span>
+          </h1>
+          <img class="hero-sticker" src="assets/img/profile/adhly-sticker.webp"
+            srcset="assets/img/profile/adhly-sticker-640.webp 640w, assets/img/profile/adhly-sticker.webp 1024w"
+            sizes="(max-width: 760px) 92vw, 600px" width="1024" height="1024"
+            alt="Illustrated portrait of Adhly Azhar" fetchpriority="high">
+        </div>
+
+        <div class="hero-bar">
+          <p class="hero-statement" data-intro style="--delay: .55s">
+            I build fintech platforms and automate
+            <span class="accent">the boring parts.<svg class="scribble" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 13 C 70 5, 150 4, 297 9 M 40 17 C 110 12, 190 12, 260 14" /></svg></span>
+          </p>
+          <div class="hero-actions" data-intro style="--delay: .7s">
+            <a class="btn btn-accent" href="#work">See my work <i class="bi bi-arrow-down-right" aria-hidden="true"></i></a>
+            <a class="btn btn-line" href="assets/resume/adhly-azhar-resume.pdf" download><i class="bi bi-download" aria-hidden="true"></i> Résumé</a>
+          </div>
+          <a class="stamp" href="#contact" aria-label="Available for freelance, get in touch">
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <defs><path id="stamp-path" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0" /></defs>
+              <text textLength="276" lengthAdjust="spacing"><textPath href="#stamp-path">AVAILABLE FOR WORK ✦ SAY HELLO ✦</textPath></text>
+            </svg>
+            <span class="stamp-core"><i class="bi bi-arrow-up-right" aria-hidden="true"></i></span>
+          </a>
+        </div>
       </div>
+    </section>
 
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>Passionate about crafting clean, functional, and user-friendly web experiences.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <!-- Intro + Photo -->
-        <div class="row align-items-center justify-content-between intro-wrap gy-5">
-          <div class="col-lg-7" data-aos="fade-right" data-aos-delay="150">
-            <div class="intro-content">
-              <span class="eyebrow">Hello there</span>
-              <h2 class="headline">I’m Adhly — creating digital journeys with a balance of creativity and calm
-                precision.</h2>
-              <p class="lead">
-                I specialize in building scalable web applications, integrating APIs, and automating workflows to save
-                time and reduce manual effort. With a balance of technical precision and creative problem-solving, I
-                transform ideas into functional, user-friendly solutions. </p>
-              <p>
-                Driven by curiosity and continuous learning, I enjoy turning challenges into opportunities — whether
-                it’s designing a custom dashboard, streamlining processes, or creating intuitive interfaces that deliver
-                real impact. </p>
-
-              <div class="cta-group">
-                <a href="#portfolio" class="btn-ghost">
-                  View My Work <i class="bi bi-arrow-down"></i>
-                </a>
-                <a href="assets/resume/adhly azhar.pdf" class="link-underline" download>
-                  Download Resume <i class="bi bi-download"></i>
-                </a>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="col-lg-5" data-aos="zoom-in" data-aos-delay="250">
-            <figure class="profile-figure text-center text-lg-end">
-              <img src="assets/img/profile/WhatsApp Image 2025-08-13 at 13.38.21_c744ed23.jpg" alt="Portrait of Alex"
-                class="img-fluid profile-photo">
-              <figcaption class="profile-caption d-flex justify-content-end">
-              </figcaption>
-            </figure>
-          </div>
+    <!-- Taped marquee bands -->
+    <div class="tapes" aria-hidden="true">
+      <div class="tape tape-ink">
+        <div class="tape-track">
+          <span>Laravel ✦ Filament ✦ PHP ✦ Next.js ✦ React ✦ PostgreSQL ✦ MetaTrader 5 ✦ Claude API ✦ Docker ✦ Make.com ✦&nbsp;</span>
+          <span>Laravel ✦ Filament ✦ PHP ✦ Next.js ✦ React ✦ PostgreSQL ✦ MetaTrader 5 ✦ Claude API ✦ Docker ✦ Make.com ✦&nbsp;</span>
         </div>
-        <!-- End Intro + Photo -->
-
-        <!-- Skills Grid -->
-        <div class="skills-wrap">
-          <div class="row g-4">
-            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="120">
-              <div class="skill-item">
-                <i class="bi bi-layout-text-window"></i>
-                <h3>UI/UX</h3>
-                <p>Designing clean, intuitive, and user-focused interfaces that enhance digital experiences.</p>
-              </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="180">
-              <div class="skill-item">
-                <i class="bi bi-code-slash"></i>
-                <h3>React.js</h3>
-                <p>Building fast, interactive, and scalable web applications with modern JavaScript frameworks.</p>
-              </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="240">
-              <div class="skill-item">
-                <i class="bi bi-phone"></i>
-                <h3>Mobile-first</h3>
-                <p>Creating responsive, mobile-optimized designs that deliver a seamless experience on any device.</p>
-              </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-              <div class="skill-item">
-                <i class="bi bi-git"></i>
-                <h3>Git & GitHub</h3>
-                <p>Manage, track, and collaborate on your code seamlessly using Git and GitHub.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End Skills Grid -->
-
-        <!-- Journey Timeline -->
-        <div class="journey-wrap">
-          <div class="row g-4">
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="120">
-              <article class="timeline-item">
-                <span class="dot"></span>
-                <time>2018</time>
-                <h4>Professional Diploma in Full Stack Development</h4>
-                <p>Gained expertise in front-end and back-end web development technologies.</p>
-              </article>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="180">
-              <article class="timeline-item">
-                <span class="dot"></span>
-                <time>2020</time>
-                <h4>Freelance Start</h4>
-                <p>Began offering creative design and development solutions independently.</p>
-              </article>
-            </div>
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="240">
-              <article class="timeline-item">
-                <span class="dot"></span>
-                <time>2022</time>
-                <h4>Trainee – Imara Software Solution</h4>
-                <p>Gained hands-on experience in software development, full-stack projects, and automation solutions.
-                </p>
-              </article>
-            </div>
-            <!-- <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-              <article class="timeline-item">
-                <span class="dot"></span>
-                <time>2024</time>
-                <h4>Lead Frontend</h4>
-                <p>Proin commodo massa sit amet urna pretium.</p>
-              </article>
-            </div> -->
-          </div>
-        </div>
-        <!-- End Journey Timeline -->
-
-        <!-- Quote -->
-        <blockquote class="personal-quote" data-aos="fade-down" data-aos-delay="200">
-          <p>“Building clean and meaningful experiences through thoughtful code and quiet design.”</p>
-        </blockquote>
-        <!-- End Quote -->
-
-        <!-- Fun Facts -->
-        <div class="facts-wrap">
-          <div class="row g-3 justify-content-center">
-            <div class="col-6 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="120">
-              <div class="fact-pill">
-                <i class="bi bi-magic"></i>
-                <span>Minimalism</span>
-              </div>
-            </div>
-            <div class="col-6 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="160">
-              <div class="fact-pill">
-                <i class="bi bi-controller"></i>
-                <span>Gaming </span>
-              </div>
-            </div>
-            <div class="col-6 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="200">
-              <div class="fact-pill">
-                <i class="bi bi-geo-alt"></i>
-                <span>City Walks</span>
-              </div>
-            </div>
-            <div class="col-6 col-md-3 col-lg-2" data-aos="zoom-in" data-aos-delay="240">
-              <div class="fact-pill">
-                <i class="bi bi-book"></i>
-                <span>Reading</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- End Fun Facts -->
-
       </div>
+      <div class="tape tape-orange">
+        <div class="tape-track">
+          <span>Trading platforms ✦ Payments ✦ KYC onboarding ✦ AI assistants ✦ Automations ✦ Websites ✦ Trading platforms ✦ Payments ✦ KYC onboarding ✦ AI assistants ✦ Automations ✦ Websites ✦&nbsp;</span>
+          <span>Trading platforms ✦ Payments ✦ KYC onboarding ✦ AI assistants ✦ Automations ✦ Websites ✦ Trading platforms ✦ Payments ✦ KYC onboarding ✦ AI assistants ✦ Automations ✦ Websites ✦&nbsp;</span>
+        </div>
+      </div>
+    </div>
 
-    </section><!-- /About Section -->
+    <!-- Currently: role at Finovation -->
+    <section id="now" class="section now">
+      <div class="container">
+        <p class="label"><span>(01)</span>Currently</p>
+        <div class="now-head">
+          <h2 class="sec-title reveal">Building a <em>brokerage platform</em></h2>
+          <p class="now-lead reveal">At Finovation Technologies I work across the full stack of a multi-branch forex and CFD
+            brokerage: the back-office CRM, the client portal, MetaTrader 5 trading, payments, KYC onboarding and an
+            introducing-broker commission engine. I’ve also built AI features into the product itself.</p>
+        </div>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
+        <dl class="now-stats reveal">
+          <div><dt>Commits</dt><dd>680+</dd></div>
+          <div><dt>Admin resources</dt><dd>~200</dd></div>
+          <div><dt>Test files</dt><dd>335</dd></div>
+          <div><dt>Help articles</dt><dd>142</dd></div>
+        </dl>
 
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>Experienced in creating responsive, user-friendly websites and automating workflows to improve efficiency.
-        </p>
-      </div><!-- End Section Title -->
+        <ul class="now-grid">
+          <li class="reveal">
+            <i class="bi bi-graph-up-arrow" aria-hidden="true"></i>
+            <h3>MetaTrader 5 trading</h3>
+            <p>Position closing through the MT5 dealer API, a fake MT5 driver for end-to-end tests, and account rules with a KYC gate.</p>
+          </li>
+          <li class="reveal" style="--delay: .06s">
+            <i class="bi bi-credit-card" aria-hidden="true"></i>
+            <h3>Payments</h3>
+            <p>A payment-provider framework for deposits, payouts, callbacks and reconciliation, with fees and limits per method.</p>
+          </li>
+          <li class="reveal" style="--delay: .12s">
+            <i class="bi bi-person-check" aria-hidden="true"></i>
+            <h3>KYC and KYB onboarding</h3>
+            <p>A verification wizard, company and institutional onboarding, and a form builder that drives registration.</p>
+          </li>
+          <li class="reveal">
+            <i class="bi bi-diagram-3" aria-hidden="true"></i>
+            <h3>IB commission engine</h3>
+            <p>Commissions, payouts, campaigns and a partner portal for introducing brokers.</p>
+          </li>
+          <li class="reveal" style="--delay: .06s">
+            <i class="bi bi-stars" aria-hidden="true"></i>
+            <h3>AI in the product</h3>
+            <p>An admin assistant on the Claude API with streaming and tool use, and read-only MCP servers for Claude, ChatGPT, Copilot, Cursor and Gemini.</p>
+          </li>
+          <li class="reveal" style="--delay: .12s">
+            <i class="bi bi-shield-lock" aria-hidden="true"></i>
+            <h3>Security and DevOps</h3>
+            <p>Branch-level permissions, sign-in with 10 providers, Docker images, GitHub Actions deploys and the upgrade to Laravel 13, Filament 5 and PHP 8.5.</p>
+          </li>
+        </ul>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
-            <article class="skill-block skills-animation">
-              <header class="d-flex align-items-center justify-content-between mb-2">
-                <h3 class="skill-title">Interface Design</h3>
-                <span class="skill-badge">Expert</span>
-              </header>
-              <p class="skill-desc">Skilled in designing clean, intuitive, and user-friendly interfaces that enhance the
-                overall user experience while maintaining modern aesthetics and functionality.</p>
-              <div class="progress slim">
-                <div class="progress-bar" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </article>
+        <div class="now-foot reveal">
+          <p class="now-stack">Laravel 13 · Filament 5 · PHP 8.5 · Next.js 16 · React 19 · TypeScript · PostgreSQL · Redis · Docker</p>
+          <p class="now-also">Also built: an IB partner app, a customer register app, a demo-account switcher for Chrome
+            and an in-app Help Center with guided tours.</p>
+          <div class="drop-note note-now" aria-hidden="true">
+            <div class="drop-paper" style="--r: -4deg"><span class="drop-pin"><span class="pin-shadow"></span><span class="pin-body"><svg class="pin-art" viewBox="0 0 22 30"><path d="M10.2 15.5H11.8L11.35 27.6L11 30L10.65 27.6Z" fill="url(#pin-steel)"/><path d="M8.6 15.2H13.4L12.3 17.6H9.7Z" fill="#8f3110"/><circle cx="11" cy="9" r="7.6" fill="url(#pin-ball)" stroke="rgba(15, 23, 42, 0.35)" stroke-width="0.6"/><ellipse cx="8.3" cy="6.1" rx="2.7" ry="1.9" fill="#fff" opacity="0.75" transform="rotate(-30 8.3 6.1)"/><circle cx="14.4" cy="12.6" r="1" fill="#fff" opacity="0.25"/></svg></span></span><p>All of this since <u>April 2026</u></p></div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <article class="skill-block skills-animation">
-              <header class="d-flex align-items-center justify-content-between mb-2">
-                <h3 class="skill-title">Prototyping</h3>
-                <span class="skill-badge">Advanced</span>
-              </header>
-              <p class="skill-desc">Experienced in creating interactive prototypes that bring ideas to life, helping
-                visualize and refine concepts before development.</p>
-              <div class="progress slim">
-                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </article>
+    <!-- Work index -->
+    <section id="work" class="section work">
+      <div class="container">
+        <div class="sec-head">
+          <p class="label"><span>(02)</span>Work log</p>
+          <div class="sec-head-row">
+            <h2 class="sec-title reveal">Recent <em>projects</em></h2>
+            <p class="sec-note reveal">Seven projects, including Tackit, live on the Chrome Web Store. Open one for the full story.</p>
           </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="250">
-            <article class="skill-block skills-animation">
-              <header class="d-flex align-items-center justify-content-between mb-2">
-                <h3 class="skill-title">Design Systems</h3>
-                <span class="skill-badge">Advanced</span>
-              </header>
-              <p class="skill-desc">Skilled in building and maintaining design systems that ensure visual consistency,
-                streamline development, and improve collaboration across projects.</p>
-              <div class="progress slim">
-                <div class="progress-bar" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </article>
+          <div class="drop-note note-work" aria-hidden="true">
+            <div class="drop-paper" style="--r: 5deg"><span class="drop-pin"><span class="pin-shadow"></span><span class="pin-body"><svg class="pin-art" viewBox="0 0 22 30"><path d="M10.2 15.5H11.8L11.35 27.6L11 30L10.65 27.6Z" fill="url(#pin-steel)"/><path d="M8.6 15.2H13.4L12.3 17.6H9.7Z" fill="#8f3110"/><circle cx="11" cy="9" r="7.6" fill="url(#pin-ball)" stroke="rgba(15, 23, 42, 0.35)" stroke-width="0.6"/><ellipse cx="8.3" cy="6.1" rx="2.7" ry="1.9" fill="#fff" opacity="0.75" transform="rotate(-30 8.3 6.1)"/><circle cx="14.4" cy="12.6" r="1" fill="#fff" opacity="0.25"/></svg></span></span><p>Tackit is <u>live</u>. Go give it a try!</p></div>
           </div>
-        </div><!-- End Skill Row 1 -->
+        </div>
 
-        <div class="row gy-4 mt-1">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="150">
-            <article class="skill-block skills-animation">
-              <header class="d-flex align-items-center justify-content-between mb-2">
-                <h3 class="skill-title">HTML/CSS</h3>
-                <span class="skill-badge">Expert</span>
-              </header>
-              <p class="skill-desc">Proficient in crafting clean, responsive, and accessible web layouts using modern
-                HTML and CSS standards to ensure optimal performance and cross-browser compatibility.</p>
-              <div class="progress slim">
-                <div class="progress-bar" role="progressbar" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </article>
+        <ol class="work-list">
+          <li class="reveal">
+            <a class="work-row" href="https://chromewebstore.google.com/detail/fnjlbcfjfmlbjieocfandcigolhcbkja"
+              target="_blank" rel="noopener" data-preview="assets/img/work/tackit/cover.webp">
+              <span class="work-num">01</span>
+              <span class="work-thumb"><img src="assets/img/work/tackit/cover.webp" width="1200" height="900" loading="lazy" alt=""></span>
+              <span class="work-main">
+                <span class="work-title">Tackit</span><span class="live-badge"><i class="status-dot" aria-hidden="true"></i>Live</span>
+                <span class="work-desc">Sticky notes for any website, synced and shareable</span>
+              </span>
+              <span class="work-tag">Chrome extension</span>
+              <span class="work-year">2026</span>
+              <span class="work-arrow" aria-hidden="true"><i class="bi bi-arrow-up-right"></i></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="work-row" href="Kartly.html" data-preview="assets/img/work/kartly/cover.webp">
+              <span class="work-num">02</span>
+              <span class="work-thumb"><img src="assets/img/work/kartly/cover.webp" width="1286" height="680" loading="lazy" alt=""></span>
+              <span class="work-main">
+                <span class="work-title">Kartly</span>
+                <span class="work-desc">Online grocery store with its own admin panel</span>
+              </span>
+              <span class="work-tag">Website</span>
+              <span class="work-year">2024</span>
+              <span class="work-arrow" aria-hidden="true"><i class="bi bi-arrow-up-right"></i></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="work-row" href="Automated-Sales-Outreach-System.html" data-preview="assets/img/work/outreach/cover.webp">
+              <span class="work-num">03</span>
+              <span class="work-thumb"><img src="assets/img/work/outreach/cover.webp" width="940" height="788" loading="lazy" alt=""></span>
+              <span class="work-main">
+                <span class="work-title">Sales outreach</span>
+                <span class="work-desc">Personal LinkedIn and email outreach, running on Make.com</span>
+              </span>
+              <span class="work-tag">Automation</span>
+              <span class="work-year">2024</span>
+              <span class="work-arrow" aria-hidden="true"><i class="bi bi-arrow-up-right"></i></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="work-row" href="Typform-slack.html" data-preview="assets/img/work/typeform-slack/cover.webp">
+              <span class="work-num">04</span>
+              <span class="work-thumb"><img src="assets/img/work/typeform-slack/cover.webp" width="940" height="788" loading="lazy" alt=""></span>
+              <span class="work-main">
+                <span class="work-title">Typeform × Slack</span>
+                <span class="work-desc">Form submissions turned into Slack approvals and onboarding</span>
+              </span>
+              <span class="work-tag">Automation</span>
+              <span class="work-year">2024</span>
+              <span class="work-arrow" aria-hidden="true"><i class="bi bi-arrow-up-right"></i></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="work-row" href="evoluze.html" data-preview="assets/img/work/evoluze/cover.webp">
+              <span class="work-num">05</span>
+              <span class="work-thumb"><img src="assets/img/work/evoluze/cover.webp" width="940" height="788" loading="lazy" alt=""></span>
+              <span class="work-main">
+                <span class="work-title">Evoluze</span>
+                <span class="work-desc">T-shirt store front end, designed in Figma first</span>
+              </span>
+              <span class="work-tag">Website</span>
+              <span class="work-year">2024</span>
+              <span class="work-arrow" aria-hidden="true"><i class="bi bi-arrow-up-right"></i></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="work-row" href="banner.html" data-preview="assets/img/work/futsal/cover.webp">
+              <span class="work-num">06</span>
+              <span class="work-thumb"><img src="assets/img/work/futsal/cover.webp" width="1600" height="1200" loading="lazy" alt=""></span>
+              <span class="work-main">
+                <span class="work-title">Futsal tournament</span>
+                <span class="work-desc">Banner, award posts and sponsor posts for a school event</span>
+              </span>
+              <span class="work-tag">Graphic design</span>
+              <span class="work-year">2025</span>
+              <span class="work-arrow" aria-hidden="true"><i class="bi bi-arrow-up-right"></i></span>
+            </a>
+          </li>
+          <li class="reveal">
+            <a class="work-row" href="logo-creation.html" data-preview="assets/img/work/logo/cover.webp">
+              <span class="work-num">07</span>
+              <span class="work-thumb"><img src="assets/img/work/logo/cover.webp" width="1024" height="1024" loading="lazy" alt=""></span>
+              <span class="work-main">
+                <span class="work-title">Logo design</span>
+                <span class="work-desc">Logos and marks, including Dinaj and the Evoluze icon</span>
+              </span>
+              <span class="work-tag">Brand identity</span>
+              <span class="work-year">2024</span>
+              <span class="work-arrow" aria-hidden="true"><i class="bi bi-arrow-up-right"></i></span>
+            </a>
+          </li>
+        </ol>
+      </div>
+      <div class="work-preview" aria-hidden="true"><img alt=""></div>
+    </section>
+
+    <!-- Services as a printed receipt -->
+    <section id="services" class="section services">
+      <div class="container services-grid">
+        <div class="services-intro">
+          <p class="label"><span>(03)</span>Toolkit</p>
+          <h2 class="sec-title reveal">What I can do <em>for you</em></h2>
+          <p class="reveal">Most projects need a bit of everything. I handle the design, the build and the
+            automations behind it, so you work with one person from start to finish.</p>
+          <a class="link-arrow reveal" href="#contact">Start a project <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          <div class="drop-note note-services" aria-hidden="true">
+            <div class="drop-paper" style="--r: -6deg"><span class="drop-pin"><span class="pin-shadow"></span><span class="pin-body"><svg class="pin-art" viewBox="0 0 22 30"><path d="M10.2 15.5H11.8L11.35 27.6L11 30L10.65 27.6Z" fill="url(#pin-steel)"/><path d="M8.6 15.2H13.4L12.3 17.6H9.7Z" fill="#8f3110"/><circle cx="11" cy="9" r="7.6" fill="url(#pin-ball)" stroke="rgba(15, 23, 42, 0.35)" stroke-width="0.6"/><ellipse cx="8.3" cy="6.1" rx="2.7" ry="1.9" fill="#fff" opacity="0.75" transform="rotate(-30 8.3 6.1)"/><circle cx="14.4" cy="12.6" r="1" fill="#fff" opacity="0.25"/></svg></span></span><p>Design, build, automate. <u>One person.</u></p></div>
           </div>
+        </div>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <article class="skill-block skills-animation">
-              <header class="d-flex align-items-center justify-content-between mb-2">
-                <h3 class="skill-title">JavaScript</h3>
-                <span class="skill-badge">Pro</span>
+        <div class="receipt-wrap reveal">
+          <span class="receipt-slot" aria-hidden="true"></span>
+          <div class="receipt-clip">
+            <article class="receipt" aria-label="Services">
+              <header class="receipt-head">
+                <strong>Adhly Azhar</strong>
+                <span>Web · Automation · Design</span>
+                <span>Puttalam, Sri Lanka</span>
               </header>
-              <p class="skill-desc">Experienced in building dynamic, interactive, and efficient web functionality using
-                modern JavaScript techniques and best practices.</p>
-              <div class="progress slim">
-                <div class="progress-bar" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="250">
-            <article class="skill-block skills-animation">
-              <header class="d-flex align-items-center justify-content-between mb-2">
-                <h3 class="skill-title">Automation</h3>
-                <span class="skill-badge">Strong</span>
-              </header>
-              <p class="skill-desc">Skilled in streamlining workflows and integrating tools using platforms like
-                Make.com and Google Sheets to save time, reduce errors, and boost efficiency.</p>
-              <div class="progress slim">
-                <div class="progress-bar" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100">
-                </div>
-              </div>
-            </article>
-          </div>
-        </div><!-- End Skill Row 2 -->
-
-        <div class="row gx-5 gy-4 mt-5 align-items-center alt-grid">
-          <div class="col-lg-5 order-lg-2" data-aos="fade-left" data-aos-delay="150">
-            <div class="soft-card p-4 rounded-2">
-              <h4 class="mini-head mb-3">Toolbox</h4>
-              <ul class="list-unstyled tool-list mb-0">
-                <li class="d-flex align-items-center gap-2"><i class="bi bi-check2"></i><span>Figma, Stitch, Flutter
-                    flow</span></li>
-                <li class="d-flex align-items-center gap-2"><i class="bi bi-check2"></i><span>make.com, zapier,
-                    Slack</span></li>
-                <li class="d-flex align-items-center gap-2"><i class="bi bi-check2"></i><span>Laravel, Bootstrap</span>
+              <div class="receipt-meta"><span>Order no. 0001</span><span data-today>Today</span></div>
+              <ol class="receipt-items">
+                <li>
+                  <div class="ri-line"><span class="ri-num">01</span><span class="ri-name">Websites and web apps</span><span class="ri-dots"></span><i class="bi bi-check-lg" aria-hidden="true"></i></div>
+                  <p>Landing pages to full platforms with admin panels. Laravel, Filament, Next.js, React, PostgreSQL.</p>
                 </li>
-                <li class="d-flex align-items-center gap-2"><i class="bi bi-check2"></i><span>Git, GitHub, Vite</span>
+                <li>
+                  <div class="ri-line"><span class="ri-num">02</span><span class="ri-name">Automation and AI</span><span class="ri-dots"></span><i class="bi bi-check-lg" aria-hidden="true"></i></div>
+                  <p>Make.com and Zapier workflows (Make Intermediate certified), Claude API assistants and MCP servers.</p>
                 </li>
-              </ul>
+                <li>
+                  <div class="ri-line"><span class="ri-num">03</span><span class="ri-name">UI and UX design</span><span class="ri-dots"></span><i class="bi bi-check-lg" aria-hidden="true"></i></div>
+                  <p>Clickable Figma prototypes before any code is written.</p>
+                </li>
+                <li>
+                  <div class="ri-line"><span class="ri-num">04</span><span class="ri-name">Graphic design</span><span class="ri-dots"></span><i class="bi bi-check-lg" aria-hidden="true"></i></div>
+                  <p>Logos, banners and social posts that look like one brand.</p>
+                </li>
+              </ol>
+              <div class="receipt-total"><span>Total</span><span class="ri-dots"></span><strong>Less busywork</strong></div>
+              <footer class="receipt-foot">
+                <span class="barcode" aria-hidden="true"></span>
+                <span>Thanks for scrolling</span>
+              </footer>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section about">
+      <div class="container">
+        <p class="label"><span>(04)</span>Bio</p>
+        <p class="about-quote reveal">I like simple layouts, clean code and <em>tools that save people time.</em></p>
+
+        <div class="bio-intro">
+          <div class="about-copy reveal">
+            <p>I’m an Associate Software Engineer at Finovation Technologies in Puttalam, Sri Lanka, working across the full
+              stack of a brokerage platform: trading, payments, onboarding and the AI features around them.</p>
+            <p>I got here through a diploma in full-stack development at IMTS, freelance work since 2022 and a four-month
+              internship at Imara Software Solutions in early 2025. Now I’m also studying for a bachelor’s degree in IT.</p>
+            <p>Away from the screen you’ll find me gaming, reading or out on a long walk around town.</p>
+            <div class="bio-actions">
+              <a class="link-arrow" href="assets/resume/adhly-azhar-resume.pdf" download>Download my résumé <i class="bi bi-download" aria-hidden="true"></i></a>
+              <a class="link-arrow" href="https://www.linkedin.com/in/adhly-azhar/" target="_blank" rel="noopener">LinkedIn <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
             </div>
           </div>
 
-          <div class="col-lg-7 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-            <div class="note">
-              <p class="mb-0">I work with a diverse range of design and development tools to bring ideas to life — from
-                creating pixel-perfect interfaces to building responsive, high-performance websites. My toolkit allows
-                me to design, prototype, and develop efficiently while ensuring a seamless user experience.</p>
+          <div class="id-wrap reveal">
+            <aside class="id-card" aria-label="At a glance">
+              <div class="id-top">
+                <span class="id-avatar"><img src="assets/img/profile/adhly-sticker-640.webp" width="640" height="640" alt="" loading="lazy"></span>
+                <div><strong>Adhly Azhar</strong><span>Associate Software Engineer</span></div>
+              </div>
+              <dl class="id-facts">
+                <div><dt><i class="bi bi-briefcase" aria-hidden="true"></i>Works at</dt><dd>Finovation Technologies</dd></div>
+                <div><dt><i class="bi bi-bullseye" aria-hidden="true"></i>Focus</dt><dd>Fintech, full stack, automation</dd></div>
+                <div><dt><i class="bi bi-geo-alt" aria-hidden="true"></i>Based in</dt><dd>Puttalam, Sri Lanka</dd></div>
+                <div><dt><i class="bi bi-clock-history" aria-hidden="true"></i>Freelancing</dt><dd>Since 2022</dd></div>
+              </dl>
+            </aside>
+            <div class="drop-note note-about" aria-hidden="true">
+              <div class="drop-paper" style="--r: 5deg"><span class="drop-pin"><span class="pin-shadow"></span><span class="pin-body"><svg class="pin-art" viewBox="0 0 22 30"><path d="M10.2 15.5H11.8L11.35 27.6L11 30L10.65 27.6Z" fill="url(#pin-steel)"/><path d="M8.6 15.2H13.4L12.3 17.6H9.7Z" fill="#8f3110"/><circle cx="11" cy="9" r="7.6" fill="url(#pin-ball)" stroke="rgba(15, 23, 42, 0.35)" stroke-width="0.6"/><ellipse cx="8.3" cy="6.1" rx="2.7" ry="1.9" fill="#fff" opacity="0.75" transform="rotate(-30 8.3 6.1)"/><circle cx="14.4" cy="12.6" r="1" fill="#fff" opacity="0.25"/></svg></span></span><p>Studying IT at the <u>Open University</u></p></div>
             </div>
           </div>
         </div>
 
+        <div class="bio-block">
+          <h3 class="bio-h">Journey</h3>
+          <div class="journey">
+            <div class="journey-col reveal">
+              <p class="journey-kind"><i class="bi bi-briefcase" aria-hidden="true"></i>Work</p>
+              <ol class="tl">
+                <li class="is-now"><span class="when">Apr 2026 to now<b class="now-chip">Now</b></span><strong>Associate Software Engineer</strong><span>Finovation Technologies · full stack, fintech</span></li>
+                <li class="is-now"><span class="when">2022 to now</span><strong>Freelance web developer and designer</strong><span>Self-employed</span></li>
+                <li><span class="when">Jan to Apr 2025</span><strong>Intern</strong><span>Imara Software Solutions</span></li>
+              </ol>
+            </div>
+            <div class="journey-col reveal" style="--delay: .08s">
+              <p class="journey-kind"><i class="bi bi-mortarboard" aria-hidden="true"></i>Study</p>
+              <ol class="tl">
+                <li class="is-now"><span class="when">Dec 2025 to 2029<b class="now-chip">In progress</b></span><strong>Bachelor’s degree in IT</strong><span>Open University of Sri Lanka</span></li>
+                <li><span class="when">2021 to 2023</span><strong>Professional Diploma in Full Stack Development</strong><span>IMTS</span></li>
+                <li><span class="when">2022 to 2025</span><strong>Mathematics</strong><span>Zahira College</span></li>
+              </ol>
+            </div>
+          </div>
+        </div>
+
+        <div class="bio-block">
+          <h3 class="bio-h">Toolbox</h3>
+          <div class="tool-grid">
+            <div class="tool-card reveal">
+              <header><i class="bi bi-hdd-stack" aria-hidden="true"></i><h4>Backend</h4></header>
+              <ul><li>PHP 8.5</li><li>Laravel 13</li><li>Filament 5</li><li>Livewire</li><li>REST APIs</li><li>PostgreSQL</li><li>MySQL</li><li>Redis</li></ul>
+            </div>
+            <div class="tool-card reveal" style="--delay: .06s">
+              <header><i class="bi bi-window" aria-hidden="true"></i><h4>Frontend</h4></header>
+              <ul><li>Next.js 16</li><li>React 19</li><li>TypeScript</li><li>Tailwind CSS</li><li>Vite</li><li>Bootstrap</li></ul>
+            </div>
+            <div class="tool-card reveal" style="--delay: .12s">
+              <header><i class="bi bi-graph-up-arrow" aria-hidden="true"></i><h4>Fintech</h4></header>
+              <ul><li>MetaTrader 5</li><li>Payment gateways</li><li>KYC and KYB</li><li>IB commissions</li></ul>
+            </div>
+            <div class="tool-card reveal">
+              <header><i class="bi bi-stars" aria-hidden="true"></i><h4>AI and automation</h4></header>
+              <ul><li>Claude API</li><li>MCP servers</li><li>Claude Code</li><li>Make.com</li><li>Zapier</li><li>Prompt engineering</li></ul>
+            </div>
+            <div class="tool-card reveal" style="--delay: .06s">
+              <header><i class="bi bi-box-seam" aria-hidden="true"></i><h4>DevOps and tests</h4></header>
+              <ul><li>Docker</li><li>nginx</li><li>GitHub Actions</li><li>AWS S3</li><li>Pest</li><li>Vitest</li><li>Playwright</li></ul>
+            </div>
+            <div class="tool-card reveal" style="--delay: .12s">
+              <header><i class="bi bi-vector-pen" aria-hidden="true"></i><h4>Design</h4></header>
+              <ul><li>Figma</li><li>Canva</li><li>Photoshop</li><li>FlutterFlow</li></ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bio-block bio-certs reveal">
+          <h3 class="bio-h">Certifications</h3>
+          <ul>
+            <li><i class="bi bi-patch-check-fill" aria-hidden="true"></i>Make Basics</li>
+            <li><i class="bi bi-patch-check-fill" aria-hidden="true"></i>Make Foundation</li>
+            <li><i class="bi bi-patch-check-fill" aria-hidden="true"></i>Make Intermediate</li>
+          </ul>
+        </div>
       </div>
+    </section>
 
-    </section><!-- /Skills Section -->
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-        <p>A snapshot of my professional journey, showcasing my skills, experience, and the projects I’ve worked on in
-          web development and automation.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row">
-          <div class="col-lg-12">
-            <ul class="nav nav-pills resume-navigation justify-content-center" id="resume-resume-tabs" role="tablist"
-              data-aos="fade-up" data-aos-delay="200">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="resume-experience-tab" data-bs-toggle="pill"
-                  data-bs-target="#resume-experience" type="button" role="tab" aria-controls="resume-experience"
-                  aria-selected="true">
-                  <span class="nav-number">01</span>
-                  <span class="nav-label">Experience</span>
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="resume-education-tab" data-bs-toggle="pill"
-                  data-bs-target="#resume-education" type="button" role="tab" aria-controls="resume-education"
-                  aria-selected="false">
-                  <span class="nav-number">02</span>
-                  <span class="nav-label">Education</span>
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="resume-skills-tab" data-bs-toggle="pill" data-bs-target="#resume-skills"
-                  type="button" role="tab" aria-controls="resume-skills" aria-selected="false">
-                  <span class="nav-number">03</span>
-                  <span class="nav-label">Skills</span>
-                </button>
-              </li>
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <p class="label label-light"><span>(05)</span>Ping me</p>
+        <div class="contact-grid">
+          <div class="contact-copy">
+            <h2 class="contact-title reveal">Let’s <em>talk</em><span class="dot-o">.</span></h2>
+            <p class="reveal">Got a website, a store or a process you’re tired of doing by hand? Send me a few lines.</p>
+            <a class="contact-email reveal" href="mailto:adhlyazhar@outlook.com">adhlyazhar@outlook.com <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
+            <ul class="contact-list reveal">
+              <li><a href="tel:+94751443323"><i class="bi bi-telephone" aria-hidden="true"></i>+94 75 144 3323</a></li>
+              <li><span><i class="bi bi-geo-alt" aria-hidden="true"></i>Puttalam, Sri Lanka</span></li>
             </ul>
-          </div>
-        </div>
-
-        <div class="tab-content resume-content" id="resume-resume-tabContent">
-          <div class="tab-pane fade show active" id="resume-experience" role="tabpanel"
-            aria-labelledby="resume-experience-tab" tabindex="0" data-aos="fade-up" data-aos-delay="300">
-            <div class="section-intro">
-              <h2>Professional Experience</h2>
-              <p>Skilled in completing projects efficiently and delivering quality results.</p>
+            <div class="socials reveal">
+              <a href="https://www.linkedin.com/in/adhly-azhar/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="https://www.instagram.com/adhly00" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.facebook.com/share/19dGxczndk/" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
             </div>
-
-            <div class="experience-grid">
-              <div class="experience-item" data-aos="fade-up" data-aos-delay="400">
-                <div class="item-header">
-                  <div class="position-info">
-                    <h3>Trainee – Web Developer & Automation</h3>
-                    <div class="company">Imara Software Solutions</div>
-                  </div>
-                  <div class="period">Jan 2025 – Apr 2025</div>
-                </div>
-                <div class="item-content">
-                  <p>Assisted in web development and automation projects, gaining practical experience in coding,
-                    testing, and workflow optimization.</p>
-                </div>
-              </div>
-
-              <div class="experience-item" data-aos="fade-up" data-aos-delay="450">
-                <div class="item-header">
-                  <div class="position-info">
-                    <h3>Freelance Web Developer & Designers</h3>
-                    <div class="company">Self-employed</div>
-                  </div>
-                  <div class="period">2022 – Present</div>
-                </div>
-                <div class="item-content">
-                  <p>Providing web development, design, and automation solutions for clients, focusing on quality,
-                    creativity, and timely delivery.</p>
-                </div>
-              </div>
-
-              <!-- <div class="experience-item" data-aos="fade-up" data-aos-delay="500">
-                <div class="item-header">
-                  <div class="position-info">
-                    <h3>Junior Product Analyst</h3>
-                    <div class="company">StartUp Dynamics</div>
-                  </div>
-                  <div class="period">2017 - 2019</div>
-                </div>
-                <div class="item-content">
-                  <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem.</p>
-                </div>
-              </div> -->
-            </div>
+            <a class="kofi reveal" href="https://ko-fi.com/adhlyazhar" target="_blank" rel="noopener">
+              <span class="kofi-cup"><i class="bi bi-cup-hot-fill" aria-hidden="true"></i></span>
+              <span><strong>Buy me a coffee</strong><small>Like Tackit or my work? Support me on Ko-fi</small></span>
+              <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+            </a>
           </div>
 
-          <div class="tab-pane fade" id="resume-education" role="tabpanel" aria-labelledby="resume-education-tab"
-            tabindex="0" data-aos="fade-up" data-aos-delay="300">
-            <div class="section-intro">
-              <h2>Educational Background</h2>
-              <p>Completed formal education with a strong foundation in Full stack web development, gaining knowledge
-                and skills essential for professional growth.</p>
+          <form id="contact-form" class="contact-form reveal" action="https://formsubmit.co/adhlyazhar@outlook.com"
+            method="POST" data-endpoint="https://formsubmit.co/ajax/adhlyazhar@outlook.com">
+            <div class="field-row">
+              <label class="field"><span>Name</span>
+                <input type="text" name="name" autocomplete="name" placeholder="Your name" required></label>
+              <label class="field"><span>Email</span>
+                <input type="email" name="email" autocomplete="email" placeholder="you@company.com" required></label>
             </div>
 
-            <div class="education-list">
-              <div class="education-entry" data-aos="fade-up" data-aos-delay="400">
-                <div class="degree-year">2022</div>
-                <div class="degree-details">
-                  <h3>Professional Diploma in Full-Stack Web Development & Design</h3>
-                  <div class="institution">IMTS </div>
-                  <p>Completed a comprehensive program covering front-end and back-end development, gaining practical
-                    skills to build modern, responsive web applications.</p>
-                </div>
+            <fieldset class="field">
+              <legend>What do you need?</legend>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="need" value="Website" checked><span>Website</span></label>
+                <label class="chip"><input type="radio" name="need" value="Automation"><span>Automation</span></label>
+                <label class="chip"><input type="radio" name="need" value="Design"><span>Design</span></label>
+                <label class="chip"><input type="radio" name="need" value="Something else"><span>Something else</span></label>
               </div>
+            </fieldset>
 
-              <div class="education-entry" data-aos="fade-up" data-aos-delay="450">
-                <div class="degree-year">2016 – 2024</div>
-                <div class="degree-details">
-                  <h3>Advanced Level & Ordinary Level Studies</h3>
-                  <div class="institution">Zahira National College</div>
-                  <p>Completed O/L and A/L education with a strong foundation in science and technology subjects.</p>
-                  <ul>
-                    <li>Ordinary Level (O/L): 3A, 3B, 3C</li>
-                    <li>Advanced Level (A/L): 2B, 1C</li>
+            <label class="field"><span>Message</span>
+              <textarea name="message" rows="4" placeholder="A few lines about the project, your timeline and budget" required></textarea></label>
 
-                  </ul>
-                </div>
-              </div>
+            <input type="hidden" name="_subject" value="New message from your portfolio">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-              <!-- <div class="education-entry" data-aos="fade-up" data-aos-delay="500">
-                <div class="degree-year">2019</div>
-                <div class="degree-details">
-                  <h3>Professional Certificate in Project Management</h3>
-                  <div class="institution">Global Learning Academy</div>
-                  <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                    pariatur.</p>
-                </div>
-              </div> -->
-            </div>
-          </div>
-
-          <div class="tab-pane fade" id="resume-skills" role="tabpanel" aria-labelledby="resume-skills-tab" tabindex="0"
-            data-aos="fade-up" data-aos-delay="300">
-            <div class="section-intro">
-              <h2>Core Competencies</h2>
-              <p>Proficient in web development, full-stack application design, automation, and problem-solving, with the
-                ability to deliver high-quality solutions efficiently.</p>
-            </div>
-
-            <div class="skills-categories">
-              <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
-                <h3>Technical Skills</h3>
-                <div class="skill-tags">
-                  <span class="skill-tag">Programming</span>
-                  <span class="skill-tag">web development</span>
-                  <span class="skill-tag">graphic design</span>
-                  <span class="skill-tag">Design & UX/UI</span>
-                  <span class="skill-tag">Automation Tools & Scripting</span>
-                </div>
-              </div>
-
-              <div class="skill-category" data-aos="fade-up" data-aos-delay="450">
-                <h3>Leadership</h3>
-                <div class="skill-tags">
-                  <span class="skill-tag">Team Management</span>
-                  <span class="skill-tag">Strategic Planning</span>
-                  <span class="skill-tag">Cross-functional Collaboration</span>
-                  <span class="skill-tag">Stakeholder Communication</span>
-                </div>
-              </div>
-
-              <div class="skill-category" data-aos="fade-up" data-aos-delay="500">
-                <h3>Tools &amp; Platforms</h3>
-                <div class="skill-tags">
-                  <span class="skill-tag">Figma</span>
-                  <span class="skill-tag">make</span>
-                  <span class="skill-tag">Postman</span>
-                  <span class="skill-tag">laragon</span>
-                  <span class="skill-tag">Slack</span>
-                  <span class="skill-tag">canva</span>
-                  <span class="skill-tag">GitHub</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Resume Section -->
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Showcasing my creative projects, design solutions, and innovative workflows.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="isotope-layout" data-default-filter="*" data-layout="fitRows" data-sort="original-order">
-
-          <div class="portfolio-filters-wrapper" data-aos="fade-up" data-aos-delay="100">
-            <ul class="portfolio-filters isotope-filters">
-              <li data-filter="*" class="filter-active">All Projects</li>
-              <li data-filter=".filter-auto">Automation</li>
-              <li data-filter=".filter-web">Web Design</li>
-              <li data-filter=".filter-print">Graphic Design</li>
-            </ul>
-          </div>
-
-          <div class="row gy-4 portfolio-grid isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-print">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/logo.jpg" class="img-fluid" alt="Brand Identity" loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/logo.jpg" class="glightbox zoom-link" title="logo creation project">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="logo-creation.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>logo creation</h3>
-                  <p>Custom Logo & Visual Identity</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/kartly/kart-01.jpg" class="img-fluid" alt="Packaging Design"
-                    loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/kartly/kart-01.jpg" class="glightbox zoom-link"
-                        title="fully developed platform">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="Kartly.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>Kartly e-commerce platform </h3>
-                  <p>fully developed responsive with admin page </p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/app.png" class="img-fluid" alt="E-commerce Platform" loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/app.png" class="glightbox zoom-link" title="E-commerce Platform">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="evoluze.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>Evoluze online shopping site</h3>
-                  <p>Modern online shopping experience</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-auto">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/Your paragraph text.png" class="img-fluid" alt="Mobile App Design"
-                    loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/Your paragraph text.png" class="glightbox zoom-link"
-                        title="Automated Sales Outreach System">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="Automated-Sales-Outreach-System.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>Automated Sales Outreach System</h3>
-                  <p>Smart Workflows & Process Optimization</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-auto">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/slack x typform.png" class="img-fluid" alt="Brand Animation"
-                    loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/slack x typform.png" class="glightbox zoom-link"
-                        title="Created an efficient Typeform-to-Slack workflow for instant notifications.">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="Typform-slack.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>Typform X slack</h3>
-                  <p>Designed an automated workflow connecting Typeform to Slack for seamless notifications and task
-                    management.</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-print">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/1.png" class="img-fluid" alt="Magazine Design" loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/1.png" class="glightbox zoom-link"
-                        title="Inter batch futsal tournament project">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="banner.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>Banner Design </h3>
-                  <p>Editorial Layout & Typographic Design</p>
-                </div>
-              </div>
-            </div><!-- End Portfolio Item -->
-
-            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-print">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/sport/1.png" class="img-fluid" alt="Motion Graphics"
-                    loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/sport/1.png" class="glightbox zoom-link"
-                        title="Inter batch futsal tournament project prize giving ">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>Sticker Design</h3>
-                  <p>Custom Illustrated Stickers & Digital Artworks</p>
-                </div>
-              </div>
-            </div>End Portfolio Item -->
-
-            <!-- <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-print">
-              <div class="portfolio-card">
-                <div class="image-container">
-                  <img src="assets/img/portfolio/A cute, sad-looking star with big eyes sitting on a cloud. Other stars shine brightly around it..png" class="img-fluid" alt="Logo Collection"
-                    loading="lazy">
-                  <div class="overlay">
-                    <div class="overlay-content">
-                      <a href="assets/img/portfolio/A cute, sad-looking star with big eyes sitting on a cloud. Other stars shine brightly around it..png" class="glightbox zoom-link"
-                        title="book cover design  ">
-                        <i class="bi bi-zoom-in"></i>
-                      </a>
-                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
-                        <i class="bi bi-arrow-right"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="content">
-                  <h3>Book Cover Design</h3>
-                  <p>Creative Layouts & Visual Storytelling</p>
-                </div>
-              </div>
-            </div>End Portfolio Item -->
-
-          </div><!-- End Portfolio Grid -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Portfolio Section -->
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section light-background">
-      <!-- <div class="container section-title" data-aos="fade-up">
-        <h2>Testimonials</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div>
-
-      <div class="container" data-aos="fade-up">
-        <div class="row justify-content-center">
-          <div class="col-lg-7">
-            <div class="swiper init-swiper">
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 5000
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  },
-                  "breakpoints": {
-                    "320": {
-                      "slidesPerView": 1,
-                      "spaceBetween": 40
-                    },
-                    "1200": {
-                      "slidesPerView": 1,
-                      "spaceBetween": 1
-                    }
-                  }
-                }
-              </script>
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="testimonial mx-auto">
-                    <figure class="img-wrap">
-                      <img src="assets/img/person/person-m-9.webp" alt="Image" class="img-fluid">
-                    </figure>
-                    <h3 class="name">Adam Aderson</h3>
-                    <blockquote>
-                      <p>
-                        “There live the blind texts. Separated they live in
-                        Bookmarksgrove right at the coast of the Semantics, a large
-                        language ocean.”
-                      </p>
-                    </blockquote>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="testimonial mx-auto">
-                    <figure class="img-wrap">
-                      <img src="assets/img/person/person-f-5.webp" alt="Image" class="img-fluid">
-                    </figure>
-                    <h3 class="name">Lukas Devlin</h3>
-                    <blockquote>
-                      <p>
-                        “There live the blind texts. Separated they live in
-                        Bookmarksgrove right at the coast of the Semantics, a large
-                        language ocean.”
-                      </p>
-                    </blockquote>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="testimonial mx-auto">
-                    <figure class="img-wrap">
-                      <img src="assets/img/person/person-f-12.webp" alt="Image" class="img-fluid">
-                    </figure>
-                    <h3 class="name">Kayla Bryant</h3>
-                    <blockquote>
-                      <p>
-                        “There live the blind texts. Separated they live in
-                        Bookmarksgrove right at the coast of the Semantics, a large
-                        language ocean.”
-                      </p>
-                    </blockquote>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
+            <button class="btn btn-accent" type="submit">Send message <i class="bi bi-send" aria-hidden="true"></i></button>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+          <div class="drop-note note-contact" aria-hidden="true">
+            <div class="drop-paper" style="--r: -3deg"><span class="drop-pin"><span class="pin-shadow"></span><span class="pin-body"><svg class="pin-art" viewBox="0 0 22 30"><path d="M10.2 15.5H11.8L11.35 27.6L11 30L10.65 27.6Z" fill="url(#pin-steel)"/><path d="M8.6 15.2H13.4L12.3 17.6H9.7Z" fill="#8f3110"/><circle cx="11" cy="9" r="7.6" fill="url(#pin-ball)" stroke="rgba(15, 23, 42, 0.35)" stroke-width="0.6"/><ellipse cx="8.3" cy="6.1" rx="2.7" ry="1.9" fill="#fff" opacity="0.75" transform="rotate(-30 8.3 6.1)"/><circle cx="14.4" cy="12.6" r="1" fill="#fff" opacity="0.25"/></svg></span></span><p>Big idea or small fix? <u>Say hi.</u></p></div>
           </div>
         </div>
       </div>
-    </section> -->
-
-      <!-- Services Section -->
-      <section id="services" class="services section">
-
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Services</h2>
-          <p>Providing web development, full-stack application design, automation solutions, and digital product
-            strategy to help businesses achieve their goals.</p>
-        </div><!-- End Section Title -->
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-          <div class="row service-grid">
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
-              <div class="service-item">
-                <div class="service-icon">
-                  <i class="bi bi-code-slash"></i>
-                </div>
-                <h3><a href="#contact">Web Development</a></h3>
-                <p>Building modern, responsive, and user-friendly websites that meet client needs and enhance online
-                  presence.</p>
-                <div class="service-link">
-                  <a href="#contact">
-                    <span>Contact us</span>
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div><!-- End Service Item -->
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-              <div class="service-item">
-                <div class="service-icon">
-                  <i class="bi bi-gear"></i>
-                </div>
-                <h3><a href="#contact">Automation</a></h3>
-                <p>Designing and implementing automated workflows to save time, reduce errors, and improve efficiency.
-                </p>
-                <div class="service-link">
-                  <a href="#contact">
-                    <span>Contact us</span>
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div><!-- End Service Item -->
-
-
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-              <div class="service-item">
-                <div class="service-icon">
-                  <i class="bi bi-palette"></i>
-                </div>
-                <h3><a href="#contact">Graphic Design</a></h3>
-                <p>Creating visually compelling designs that effectively communicate your brand’s message and captivate
-                  your audience.</p>
-                <div class="service-link">
-                  <a href="#contact">
-                    <span>Contact us</span>
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div><!-- End Service Item -->
-
-            <!-- <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-              <div class="service-item">
-                <div class="service-icon">
-                  <i class="bi bi-shield-check"></i>
-                </div>
-                <h3><a href="service-details.html">Brand Strategy</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                  et
-                  dolore magna aliqua.</p>
-                <div class="service-link">
-                  <a href="service-details.html">
-                    <span>Contact us</span>
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div>End Service Item -->
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="250">
-              <div class="service-item">
-                <div class="service-icon">
-                  <i class="bi bi-tablet"></i>
-                </div>
-                <h3><a href="#contact">UI/UX Design</a></h3>
-                <p>Designing intuitive and engaging user interfaces that provide seamless experiences across web and
-                  mobile platforms.</p>
-                <div class="service-link">
-                  <a href="#contact">
-                    <span>Contact us</span>
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div><!-- End Service Item -->
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-              <div class="service-item">
-                <div class="service-icon">
-                  <i class="bi bi-link"></i>
-                </div>
-                <h3><a href="#contact">Prototyping</a></h3>
-                <p>Creating interactive prototypes to visualize concepts, test ideas, and gather user feedback before
-                  development.</p>
-                <div class="service-link">
-                  <a href="#contact">
-                    <span>Contact us</span>
-                    <i class="bi bi-arrow-right"></i>
-                  </a>
-                </div>
-              </div>
-            </div><!-- End Service Item -->
-
-          </div>
-
-        </div>
-
-      </section><!-- /Services Section -->
-
-
-      <!-- Contact Section -->
-      <section id="contact" class="contact section light-background">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Contact</h2>
-          <p>Get in touch to discuss your project, request a quote, or collaborate on creating innovative digital
-            solutions.</p>
-        </div><!-- End Section Title -->
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <div class="row align-items-stretch">
-            <div class="col-lg-7 order-lg-1 order-2" data-aos="fade-right" data-aos-delay="200">
-              <div class="contact-form-container">
-                <div class="form-intro">
-                  <h2>Let's Start a Conversation</h2>
-                  <p>Have an idea or project in mind? Reach out today and let’s create something amazing together!</p>
-                </div>
-
-                <form id="contactForm" class="contact-form">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="form-field">
-        <input type="text" name="name" class="form-input" id="userName" placeholder="Your Name" required>
-        <label for="userName" class="field-label">Name</label>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="form-field">
-        <input type="email" class="form-input" name="email" id="userEmail" placeholder="Your Email" required>
-        <label for="userEmail" class="field-label">Email</label>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6">
-      <div class="form-field">
-        <input type="tel" class="form-input" name="phone" id="userPhone" placeholder="Your Phone">
-        <label for="userPhone" class="field-label">Phone</label>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="form-field">
-        <input type="text" class="form-input" name="subject" id="messageSubject" placeholder="Subject" required>
-        <label for="messageSubject" class="field-label">Subject</label>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-field message-field">
-    <textarea class="form-input message-input" name="message" id="userMessage" rows="5" placeholder="Tell us about your project" required></textarea>
-    <label for="userMessage" class="field-label">Message</label>
-  </div>
-
-  <!-- Formsubmit hidden inputs -->
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_subject" value="New Contact Form Submission!">
-
-  <div class="my-3">
-    <div class="loading" style="display: none;">Loading...</div>
-    <div class="error-message" style="display: none;"></div>
-    <div class="sent-message" style="display: none;">Your message has been sent. Thank you!</div>
-  </div>
-
-  <button type="submit" class="send-button">
-    Send Message
-    <span class="button-arrow">→</span>
-  </button>
-</form>
-
-<script>
-const form = document.getElementById('contactForm');
-const sentMessage = form.querySelector('.sent-message');
-const loading = form.querySelector('.loading');
-const errorMessage = form.querySelector('.error-message');
-
-form.addEventListener('submit', function(e){
-    e.preventDefault(); // prevent default redirect
-
-    loading.style.display = 'block';
-    errorMessage.style.display = 'none';
-    sentMessage.style.display = 'none';
-
-    const formData = new FormData(form);
-
-    fetch('https://formsubmit.co/ajax/adhlyazhar00@gmail.com', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        loading.style.display = 'none';
-        sentMessage.style.display = 'block';
-        form.reset(); // clear form
-        setTimeout(() => sentMessage.style.display = 'none', 5000);
-    })
-    .catch(error => {
-        loading.style.display = 'none';
-        errorMessage.style.display = 'block';
-        errorMessage.innerText = "Error sending message. Please try again.";
-    });
-});
-</script>
-
-
-
-              </div>
-            </div>
-
-            <div class="col-lg-5 order-lg-2 order-1" data-aos="fade-left" data-aos-delay="300">
-              <div class="contact-sidebar">
-                <div class="contact-header">
-                  <h3>Get in Touch</h3>
-                  <p>Have questions or want to collaborate? Reach out and let’s bring your ideas to life!</p>
-                </div>
-
-                <div class="contact-methods">
-                  <div class="contact-method" data-aos="fade-in" data-aos-delay="350">
-                    <div class="contact-icon">
-                      <i class="bi bi-geo-alt"></i>
-                    </div>
-                    <div class="contact-details">
-                      <span class="method-label">Address</span>
-                      <p>52/2 canal road,<br>Puttalam, Sri Lanka</p>
-                    </div>
-                  </div>
-
-                  <div class="contact-method" data-aos="fade-in" data-aos-delay="400">
-                    <div class="contact-icon">
-                      <i class="bi bi-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                      <span class="method-label">Email</span>
-                      <p>adhlyazhar00@gmail.com</p>
-                    </div>
-                  </div>
-
-                  <div class="contact-method" data-aos="fade-in" data-aos-delay="450">
-                    <div class="contact-icon">
-                      <i class="bi bi-telephone"></i>
-                    </div>
-                    <div class="contact-details">
-                      <span class="method-label">Phone</span>
-                      <p>+9475 144 3323</p>
-                    </div>
-                  </div>
-
-                  <!-- <div class="contact-method" data-aos="fade-in" data-aos-delay="500">
-                      <div class="contact-icon">
-                        <i class="bi bi-clock"></i>
-                      </div>
-                      <div class="contact-details">
-                        <span class="method-label">Hours</span>
-                        <p>Monday - Friday: 9AM - 6PM<br>Saturday: 10AM - 4PM</p>
-                      </div>
-                    </div> -->
-                </div>
-
-                <div class="connect-section" data-aos="fade-up" data-aos-delay="550">
-                  <span class="connect-label">Connect with us</span>
-                  <div class="social-links">
-                    <a href="https://www.linkedin.com/in/adhly-azhar/" class="social-link">
-                      <i class="bi bi-linkedin"></i>
-                    </a>
-                    <!-- <a href="#" class="social-link">
-                      <i class="bi bi-twitter-x"></i>
-                    </a> -->
-                    <a href="https://www.instagram.com/adhly_18?igsh=MTJzc24yM2NpcnQ4MQ==" class="social-link">
-                      <i class="bi bi-instagram"></i>
-                    </a>
-                    <a href="https://www.facebook.com/share/19dGxczndk/" class="social-link">
-                      <i class="bi bi-facebook"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section><!-- /Contact Section -->
+    </section>
 
   </main>
 
-  <footer id="footer" class="footer">
-
-    <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">adhlyazhar</strong> <span>All Rights Reserved</span>
-        </p>
-      </div>
-      <div class="social-links d-flex justify-content-center">
-        <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
-        <a href="https://www.facebook.com/share/19dGxczndk/"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/adhly_18?igsh=MTJzc24yM2NpcnQ4MQ=="><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/adhly-azhar/"><i class="bi bi-linkedin"></i></a>
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="#hero">adhlyazhar</a>
-      </div>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span data-year>2026</span> Adhly Azhar</p>
+      <nav aria-label="Footer">
+        <a href="#work">Work Log</a>
+        <a href="#services">Toolkit</a>
+        <a href="#about">Bio</a>
+        <a href="notebook.html">Notebook</a>
+        <a href="#contact">Ping me</a>
+      </nav>
+      <a class="footer-kofi" href="https://ko-fi.com/adhlyazhar" target="_blank" rel="noopener"><i class="bi bi-cup-hot" aria-hidden="true"></i> Buy me a coffee</a>
+      <a class="to-top" href="#top">Back to top <i class="bi bi-arrow-up" aria-hidden="true"></i></a>
     </div>
-
+    <div class="footer-mast" aria-hidden="true">Adhly Azhar</div>
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/sound.js" defer></script>
 </body>
 
 </html>

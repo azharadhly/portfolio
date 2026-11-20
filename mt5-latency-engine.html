@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inside MT5&#x27;s latency engine · Notebook · Adhly Azhar</title>
+  <meta name="description" content="In a fast market, a quote can be out of date within milliseconds. MetaTrader 5 is built as a network of servers whose main job is to keep the trip from click to fill short.">
+  <meta name="theme-color" content="#F3EEE3">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Inside MT5&#x27;s latency engine · Notebook · Adhly Azhar">
+  <meta property="og:description" content="In a fast market, a quote can be out of date within milliseconds. MetaTrader 5 is built as a network of servers whose main job is to keep the trip from click to fill short.">
+  <meta property="og:image" content="https://azharadhly.github.io/portfolio/assets/img/profile/og-image.jpg">
+
+  <link rel="icon" href="assets/img/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Adhly Azhar, home">
+        <span>Adhly Azhar</span>
+      </a>
+
+      <nav id="site-menu" class="nav-links" aria-label="Main">
+        <a href="index.html#work">Work Log</a>
+        <a href="index.html#services">Toolkit</a>
+        <a href="index.html#about">Bio</a>
+        <a href="notebook.html" class="is-active" aria-current="page">Notebook</a>
+        <a href="index.html#contact">Ping me</a>
+        <a class="only-mobile" href="assets/resume/adhly-azhar-resume.pdf" download>Download résumé</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="sound-toggle" type="button" data-sound-toggle data-on="Pause music" data-off="Play music"
+          aria-pressed="false" aria-label="Background music" title="Play music">
+          <span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        </button>
+        <a class="btn btn-ink btn-sm" href="index.html#contact">Let’s talk</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-menu" aria-label="Open menu">
+          <i class="bi bi-list" aria-hidden="true"></i><i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="container">
+      <header class="note-head">
+        <a class="back-link" href="notebook.html"><i class="bi bi-arrow-left" aria-hidden="true"></i> Notebook</a>
+        <p class="label case-eyebrow"><span>(Note 03)</span>Trading · MetaTrader 5</p>
+        <h1>Inside MT5’s <span>latency engine</span></h1>
+        <p class="note-lead">In a fast market, a quote can be out of date within milliseconds. MetaTrader 5 is built as a network of servers whose main job is to keep the trip from click to fill short.</p>
+        <dl class="case-meta">
+          <div><dt>Reading time</dt><dd>3 min</dd></div>
+          <div><dt>Topic</dt><dd>Latency and execution</dd></div>
+          <div><dt>Diagrams</dt><dd>3, animated</dd></div>
+          <div><dt>Updated</dt><dd>Nov 2026</dd></div>
+        </dl>
+      </header>
+
+      <article class="note-body">
+
+        <div class="prose reveal">
+          <h2><span class="h-num">01</span>One login, many servers</h2>
+          <p>When a trader logs in, the MT5 terminal doesn’t talk to the trade server directly. A broker’s MT5 platform is a group of servers with separate jobs:</p>
+          <ul>
+            <li><strong>Access servers.</strong> Spread around the world. They accept the terminal’s connection and pass requests on, and they shield the trade server from attacks.</li>
+            <li><strong>Trade server.</strong> The core. It holds accounts and positions, checks margin and executes orders.</li>
+            <li><strong>History server.</strong> Stores price history, so charts load without slowing down trading.</li>
+            <li><strong>Backup server.</strong> Keeps a live copy of the trade server, ready to take over.</li>
+            <li><strong>Gateway.</strong> Connects the platform to liquidity providers and other markets.</li>
+          </ul>
+          <p>The terminal measures the ping to the access points it knows and connects through the fastest. That is the first trick: put the entry point close to the trader.</p>
+        </div>
+        <figure class="fig reveal">
+          <div class="fig-stage"><svg class="motion" viewBox="0 0 960 470" role="img" aria-label="MT5 architecture: the terminal pings access servers in Singapore, London and New York and picks the fastest; the order travels through it to the trade server, gateway and liquidity provider, and the fill returns the same way." data-still="7.4"><path class="d-line" d="M174 225C220 225 220 102 270 102"/><path class="d-line" d="M174 235H270"/><path class="d-line" d="M174 245C220 245 220 368 270 368"/><path class="d-line" d="M450 102C495 102 495 225 540 225"/><path class="d-line" d="M450 235H540"/><path class="d-line" d="M450 368C495 368 495 245 540 245"/><path class="d-line" d="M720 225C745 225 745 172 770 172"/><path class="d-line" d="M853 204V300"/><path class="d-line" d="M630 197V116" stroke-dasharray="4 5"/><path class="d-line" d="M630 273V354" stroke-dasharray="4 5"/><circle class="d-dot is-ink" r="5" opacity="0"><animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" path="M174 225C220 225 220 102 270 102" keyPoints="0;0;1;1" keyTimes="0.0000;0.0273;0.1091;1.0000"/><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0164;0.0273;0.1091;0.1200;1.0000"/></circle><circle class="d-dot is-ink" r="5" opacity="0"><animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" path="M174 235H270" keyPoints="0;0;1;1" keyTimes="0.0000;0.0273;0.1091;1.0000"/><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0164;0.0273;0.1091;0.1200;1.0000"/></circle><circle class="d-dot is-ink" r="5" opacity="0"><animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" path="M174 245C220 245 220 368 270 368" keyPoints="0;0;1;1" keyTimes="0.0000;0.0273;0.1091;1.0000"/><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0164;0.0273;0.1091;0.1200;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" path="M174 225C220 225 220 102 270 102L450 102C495 102 495 225 540 225L720 225C745 225 745 172 770 172L853 172L853 300" keyPoints="0;0;1;1" keyTimes="0.0000;0.2727;0.5091;1.0000"/><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2618;0.2727;0.5091;0.5200;1.0000"/></circle><circle class="d-dot is-ink" r="7" opacity="0"><animateMotion dur="11s" repeatCount="indefinite" calcMode="linear" path="M853 300L853 172L770 172C745 172 745 225 720 225L540 225C495 225 495 102 450 102L270 102C220 102 220 225 174 225" keyPoints="0;0;1;1" keyTimes="0.0000;0.5455;0.7818;1.0000"/><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.5345;0.5455;0.7818;0.7927;1.0000"/></circle><g class="d-node is-dark"><rect x="24" y="197" width="150" height="76" rx="14"/><text class="d-title" x="99.0" y="233.0" text-anchor="middle">MT5 terminal</text><text class="d-sub" x="99.0" y="252.0" text-anchor="middle">trader's PC</text></g><g class="d-node "><rect x="270" y="70" width="180" height="64" rx="14"/><text class="d-title" x="360.0" y="100.0" text-anchor="middle">Singapore</text><text class="d-sub" x="360.0" y="119.0" text-anchor="middle">access server</text></g><g class="d-node "><rect x="270" y="203" width="180" height="64" rx="14"/><text class="d-title" x="360.0" y="233.0" text-anchor="middle">London</text><text class="d-sub" x="360.0" y="252.0" text-anchor="middle">access server</text></g><g class="d-node "><rect x="270" y="336" width="180" height="64" rx="14"/><text class="d-title" x="360.0" y="366.0" text-anchor="middle">New York</text><text class="d-sub" x="360.0" y="385.0" text-anchor="middle">access server</text></g><g class="d-node is-accent"><rect x="540" y="197" width="180" height="76" rx="14"/><text class="d-title" x="630.0" y="233.0" text-anchor="middle">Trade server</text><text class="d-sub" x="630.0" y="252.0" text-anchor="middle">orders, accounts</text></g><g class="d-node "><rect x="540" y="60" width="180" height="56" rx="14"/><text class="d-title" x="630.0" y="94.0" text-anchor="middle">History server</text></g><g class="d-node "><rect x="540" y="354" width="180" height="56" rx="14"/><text class="d-title" x="630.0" y="388.0" text-anchor="middle">Backup server</text></g><g class="d-node "><rect x="770" y="140" width="166" height="64" rx="14"/><text class="d-title" x="853.0" y="170.0" text-anchor="middle">Gateway</text><text class="d-sub" x="853.0" y="189.0" text-anchor="middle">bridge to liquidity</text></g><g class="d-node "><rect x="770" y="300" width="166" height="64" rx="14"/><text class="d-title" x="853.0" y="330.0" text-anchor="middle">Liquidity</text><text class="d-sub" x="853.0" y="349.0" text-anchor="middle">prices and fills</text></g><text class="d-label is-orange" x="222" y="92" text-anchor="middle" opacity="0">48 ms<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1091;0.1273;0.9455;0.9636;1.0000"/></text><text class="d-label " x="222" y="226" text-anchor="middle" opacity="0">142 ms<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1091;0.1273;0.9455;0.9636;1.0000"/></text><text class="d-label " x="222" y="358" text-anchor="middle" opacity="0">231 ms<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1091;0.1273;0.9455;0.9636;1.0000"/></text><rect x="266" y="66" width="188" height="72" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1455;0.1636;0.9455;0.9636;1.0000"/></rect><text class="d-label is-orange" x="360" y="52" text-anchor="middle" opacity="0">fastest: picked<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1455;0.1636;0.9455;0.9636;1.0000"/></text><rect x="536" y="193" width="188" height="84" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0;1;1;0;0" keyTimes="0.0000;0.3409;0.3591;0.3955;0.4136;0.6545;0.6727;0.7091;0.7273;1.0000"/></rect><rect x="766" y="136" width="174" height="72" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3909;0.4091;0.4364;0.4545;1.0000"/></rect><rect x="766" y="296" width="174" height="72" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4909;0.5091;0.5636;0.5818;1.0000"/></rect><rect x="20" y="193" width="158" height="84" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.7727;0.7909;0.9273;0.9455;1.0000"/></rect><text class="d-label is-orange" x="99" y="300" text-anchor="middle" opacity="0">filled<animate attributeName="opacity" dur="11s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.7818;0.8000;0.9455;0.9636;1.0000"/></text><circle class="d-dot is-ink" cx="560" cy="448" r="6"/><text class="d-legend" x="576" y="452">ping and fill</text><circle class="d-dot" cx="681" cy="448" r="6"/><text class="d-legend" x="697" y="452">order</text></svg></div>
+          <figcaption><span class="fig-num">Fig. 01</span><span>The terminal pings three access servers and picks the fastest, Singapore here. The order (orange) travels through it to the trade server and gateway, and the fill (black) comes back the same way. Ping times are illustrative.<span class="fig-hint">Swipe sideways to see the whole diagram.</span></span></figcaption>
+        </figure>
+
+        <div class="prose reveal">
+          <h2><span class="h-num">02</span>Where the milliseconds go</h2>
+          <p>Follow one market order and add up the delay at each hop.</p>
+        </div>
+        <figure class="fig reveal">
+          <div class="fig-stage"><svg class="motion" viewBox="0 0 960 250" role="img" aria-label="Latency budget of one market order, about 104 milliseconds round trip: 45 ms and 46 ms for the two network legs, 2 ms from access to trade server, 1 ms of checks and 10 ms at the gateway and liquidity provider." data-still="7"><rect x="40" y="110" width="880" height="44" rx="8" fill="#FFFDF8" stroke="#111111" stroke-width="2"/><rect x="40.0" y="112" width="0" height="40" fill="#D9541E"><animate attributeName="width" dur="9s" repeatCount="indefinite" values="0;0;380.8;380.8;0" keyTimes="0;0.0444;0.3329;0.9556;1"/></rect><text class="d-label" x="230.4" y="186" text-anchor="middle">network to access server</text><text class="d-big" x="230.4" y="226" text-anchor="middle">45 ms</text><rect x="420.8" y="112" width="0" height="40" fill="#111111"><animate attributeName="width" dur="9s" repeatCount="indefinite" values="0;0;16.9;16.9;0" keyTimes="0;0.3329;0.3457;0.9556;1"/></rect><path d="M429.2 108V50H520" fill="none" stroke="#7d7568" stroke-width="1.2"/><text class="d-label" x="526" y="54">access to trade server: 2 ms</text><rect x="437.7" y="112" width="0" height="40" fill="#7d7568"><animate attributeName="width" dur="9s" repeatCount="indefinite" values="0;0;8.5;8.5;0" keyTimes="0;0.3457;0.3521;0.9556;1"/></rect><path d="M441.9 108V72H540" fill="none" stroke="#7d7568" stroke-width="1.2"/><text class="d-label" x="546" y="76">margin and risk checks: 1 ms</text><rect x="446.2" y="112" width="0" height="40" fill="#111111"><animate attributeName="width" dur="9s" repeatCount="indefinite" values="0;0;84.6;84.6;0" keyTimes="0;0.3521;0.4162;0.9556;1"/></rect><path d="M488.5 108V94H560" fill="none" stroke="#7d7568" stroke-width="1.2"/><text class="d-label" x="566" y="98">gateway and fill: 10 ms</text><rect x="530.8" y="112" width="0" height="40" fill="#D9541E"><animate attributeName="width" dur="9s" repeatCount="indefinite" values="0;0;389.2;389.2;0" keyTimes="0;0.4162;0.7111;0.9556;1"/></rect><text class="d-label" x="725.4" y="186" text-anchor="middle">network back</text><text class="d-big" x="725.4" y="226" text-anchor="middle">46 ms</text><text class="d-legend" x="920" y="40" text-anchor="end">TOTAL ROUND TRIP</text><text class="d-big" x="920" y="80" text-anchor="end" opacity="0" style="fill:#D9541E">0 ms<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0444;0.0500;0.3329;0.3385;1.0000"/></text><text class="d-big" x="920" y="80" text-anchor="end" opacity="0" style="fill:#D9541E">45 ms<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3329;0.3385;0.3457;0.3513;1.0000"/></text><text class="d-big" x="920" y="80" text-anchor="end" opacity="0" style="fill:#D9541E">47 ms<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3457;0.3513;0.3521;0.3577;1.0000"/></text><text class="d-big" x="920" y="80" text-anchor="end" opacity="0" style="fill:#D9541E">48 ms<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3521;0.3577;0.4162;0.4218;1.0000"/></text><text class="d-big" x="920" y="80" text-anchor="end" opacity="0" style="fill:#D9541E">58 ms<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4162;0.4218;0.7111;0.7167;1.0000"/></text><text class="d-big" x="920" y="80" text-anchor="end" opacity="0" style="fill:#D9541E">104 ms<animate attributeName="opacity" dur="9s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.7111;0.7167;0.9556;0.9611;1.0000"/></text></svg></div>
+          <figcaption><span class="fig-num">Fig. 02</span><span>An illustrative round trip of 104 ms. The two network legs take 91 ms; everything inside the data center takes 13.<span class="fig-hint">Swipe sideways to see the whole diagram.</span></span></figcaption>
+        </figure>
+
+        <div class="prose reveal">
+          <p>The pattern holds almost everywhere: the servers are fast and the distance is slow.</p>
+
+          <h2><span class="h-num">03</span>The speed of light is the limit</h2>
+          <p>Light in optical fiber covers about 200 km per millisecond. Sri Lanka to London is about 8,700 km in a straight line and longer by cable, so one round trip takes at least 87 ms before a single router gets involved. Software can’t beat that. It can only move closer.</p>
+
+          <h2><span class="h-num">04</span>Execution modes</h2>
+          <p>Latency matters most in the moment between clicking and filling. If the price changes in that moment, MT5 handles it according to the symbol’s execution mode:</p>
+          <ul>
+            <li><strong>Instant execution.</strong> The order fills at the price the trader saw, or not at all. If the price moved, the trader gets a <strong>requote</strong> and can accept the new price.</li>
+            <li><strong>Market execution.</strong> The order fills at the current price, whatever it is. No requotes, but the fill can differ from the screen. That difference is <strong>slippage</strong>.</li>
+            <li><strong>Request execution.</strong> The terminal asks for a price first, then trades on it.</li>
+            <li><strong>Exchange execution.</strong> Orders go to an external exchange and fill there.</li>
+          </ul>
+        </div>
+        <figure class="fig reveal">
+          <div class="fig-stage"><svg class="motion" viewBox="0 0 960 340" role="img" aria-label="A buy order clicked at 1.08520 arrives after the price moved to 1.08523: instant execution sends a requote, market execution fills at 1.08523 with 0.3 pips of slippage." data-still="5"><path class="d-line is-ink" d="M230 180H380"/><path class="d-line" d="M580 170C640 170 650 85 700 85"/><path class="d-line" d="M580 190C640 190 650 275 700 275"/><circle class="d-dot " r="7" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" path="M230 180H480" keyPoints="0;0;1;1" keyTimes="0.0000;0.0500;0.3000;1.0000"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0350;0.0500;0.3000;0.3150;1.0000"/></circle><circle class="d-dot " r="7" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" path="M480 175H580C640 170 650 85 700 85" keyPoints="0;0;1;1" keyTimes="0.0000;0.3500;0.4750;1.0000"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3350;0.3500;0.4750;0.4900;1.0000"/></circle><circle class="d-dot is-ink" r="7" opacity="0"><animateMotion dur="8s" repeatCount="indefinite" calcMode="linear" path="M480 185H580C640 190 650 275 700 275" keyPoints="0;0;1;1" keyTimes="0.0000;0.3500;0.4750;1.0000"/><animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.3350;0.3500;0.4750;0.4900;1.0000"/></circle><g class="d-node is-dark"><rect x="30" y="142" width="200" height="76" rx="14"/><text class="d-title" x="130.0" y="178.0" text-anchor="middle">Buy EURUSD</text><text class="d-sub" x="130.0" y="197.0" text-anchor="middle">clicked at 1.08520</text></g><g class="d-node is-accent"><rect x="380" y="142" width="200" height="76" rx="14"/><text class="d-title" x="480.0" y="178.0" text-anchor="middle">Trade server</text><text class="d-sub" x="480.0" y="197.0" text-anchor="middle">checks the price</text></g><g class="d-node "><rect x="700" y="40" width="240" height="90" rx="14"/><text class="d-title" x="820.0" y="75.0" text-anchor="middle">Instant execution</text><text class="d-sub" x="820.0" y="94.0" text-anchor="middle">price moved: requote</text><text class="d-sub" x="820.0" y="111.0" text-anchor="middle">accept 1.08523?</text></g><g class="d-node "><rect x="700" y="230" width="240" height="90" rx="14"/><text class="d-title" x="820.0" y="265.0" text-anchor="middle">Market execution</text><text class="d-sub" x="820.0" y="284.0" text-anchor="middle">filled at 1.08523</text><text class="d-sub" x="820.0" y="301.0" text-anchor="middle">slippage 0.3 pips</text></g><rect x="696" y="36" width="248" height="98" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4750;0.5000;0.9250;0.9500;1.0000"/></rect><rect x="696" y="226" width="248" height="98" rx="17" fill="none" stroke="#D9541E" stroke-width="3.5" opacity="0"><animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.4750;0.5000;0.9250;0.9500;1.0000"/></rect><text class="d-label " x="480" y="64" text-anchor="middle">MARKET PRICE</text><text class="d-big" x="480" y="104" text-anchor="middle" opacity="0">1.08520<animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.0001;0.0063;0.1500;0.1562;1.0000"/></text><text class="d-big" x="480" y="104" text-anchor="middle" opacity="0">1.08521<animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.1562;0.1625;0.2500;0.2562;1.0000"/></text><text class="d-big" x="480" y="104" text-anchor="middle" opacity="0" style="fill:#D9541E">1.08523<animate attributeName="opacity" dur="8s" repeatCount="indefinite" values="0;0;1;1;0;0" keyTimes="0.0000;0.2562;0.2625;0.9500;0.9562;1.0000"/></text></svg></div>
+          <figcaption><span class="fig-num">Fig. 03</span><span>The trader clicks Buy at 1.08520, but by the time the order arrives the price is 1.08523. Instant execution sends a requote; market execution fills at 1.08523, 0.3 pips worse.<span class="fig-hint">Swipe sideways to see the whole diagram.</span></span></figcaption>
+        </figure>
+
+        <div class="prose reveal">
+          <h2><span class="h-num">05</span>How traders and brokers cut latency</h2>
+          <ul>
+            <li><strong>Host next to the trade server.</strong> Traders who run expert advisors use a VPS in the same data center, which can bring the round trip down to a millisecond or two.</li>
+            <li><strong>Co-locate the gateway.</strong> Brokers put the trade server and gateway in the same data center as their liquidity providers. London’s LD4, New York’s NY4 and Tokyo’s TY3 are the usual forex hubs.</li>
+            <li><strong>Add access servers.</strong> An access point near each big client region shortens the first network leg.</li>
+            <li><strong>Skip Wi-Fi and mobile data</strong> for anything time sensitive. They add jitter as well as delay.</li>
+          </ul>
+
+          <h2><span class="h-num">06</span>Words to know</h2>
+          <dl class="glossary">
+            <div><dt>Latency</dt><dd>The time a message takes to get somewhere. In trading, usually measured in milliseconds.</dd></div>
+            <div><dt>Ping</dt><dd>A round trip test: how long it takes to reach a server and hear back.</dd></div>
+            <div><dt>Access server</dt><dd>An MT5 entry point near the trader that forwards requests to the trade server.</dd></div>
+            <div><dt>Trade server</dt><dd>The core MT5 server that holds accounts and executes orders.</dd></div>
+            <div><dt>Gateway</dt><dd>The link between MT5 and outside liquidity or exchanges.</dd></div>
+            <div><dt>Slippage</dt><dd>The difference between the expected price and the fill price.</dd></div>
+            <div><dt>Requote</dt><dd>A new price offered when the requested one is no longer available.</dd></div>
+            <div><dt>VPS</dt><dd>A virtual server rented in a data center, often close to the broker.</dd></div>
+          </dl>
+        </div>
+
+      </article>
+
+      <nav class="case-next" aria-label="Next note">
+        <a href="how-copy-trading-works.html">
+          <span><small>Next note</small><strong>How cross-broker copy trading works</strong></span>
+          <span class="work-arrow" aria-hidden="true"><i class="bi bi-arrow-right"></i></span>
+        </a>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span data-year>2026</span> Adhly Azhar</p>
+      <nav aria-label="Footer">
+        <a href="index.html#work">Work Log</a>
+        <a href="index.html#services">Toolkit</a>
+        <a href="index.html#about">Bio</a>
+        <a href="notebook.html">Notebook</a>
+        <a href="index.html#contact">Ping me</a>
+      </nav>
+      <a class="footer-kofi" href="https://ko-fi.com/adhlyazhar" target="_blank" rel="noopener"><i class="bi bi-cup-hot" aria-hidden="true"></i> Buy me a coffee</a>
+      <a class="to-top" href="#top">Back to top <i class="bi bi-arrow-up" aria-hidden="true"></i></a>
+    </div>
+    <div class="footer-mast" aria-hidden="true">Adhly Azhar</div>
+  </footer>
+
+  <script src="assets/js/site.js" defer></script>
+  <script src="assets/js/sound.js" defer></script>
+</body>
+
+</html>
